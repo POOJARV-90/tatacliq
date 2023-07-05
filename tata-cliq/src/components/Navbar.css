@@ -1,0 +1,111 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+#navbar{
+    width: 100%;
+    /* height: 70px; */
+    background-color:#212121;
+    display: flex;
+    align-items: center;
+    color: white;
+    position: fixed;
+    
+}
+
+#tata-logo{
+    width: 20%;
+    /* border: 1px solid blue; */
+    
+  
+}
+#tata-logo>div{
+    width: 28%;
+    margin: auto;
+}
+#tata-logo>div>img{
+width: 100%;
+color: white;
+}
+#nav-option{
+    width: 80%; 
+    height: 100%;
+    /* border: 1px solid red; */
+}
+#up-bar{
+    font-weight: 600;
+    font-size: 13px;
+    /* border: 1px solid red; */
+    background-color:#000000 ;
+    align-items: center;
+    padding: 1%;
+}
+#up-bar>span:nth-child(1){
+    margin-right: 38%;
+}
+#up-bar>span:nth-child(2)>span{
+    margin-left: 1.8%;
+}
+
+#down-bar{
+   display: flex; 
+}
+#down-bar>div:nth-child(3){
+    /* border: 1px solid green; */
+    width: 60%;
+   
+}
+#down-bar>div{
+    /* align-items: center; */
+    width: auto;
+    padding: 0.8%;
+}
+.margin-top{
+    width: auto;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+.margin-top:hover{
+    background-color: white;
+    color: black;
+    
+}
+#down-bar>div:nth-child(3)>div{
+    /* border: 1px solid red; */
+    background-color: #4a4a4a;
+    padding: 1%;
+    border-radius: 5px;
+}
+#down-bar>div:nth-child(3)>div>input:nth-child(2){
+width: 90%;
+height: 100%;
+background-color: #4a4a4a;
+outline: none;
+padding: 1%;
+border: none;
+
+
+}
+#down-bar>div:nth-child(3)>div>input:nth-child(2)::placeholder{
+    color: #9fa5a5;
+    letter-spacing: 1px;
+}
+#down-bar>div:nth-child(3)>div>i:nth-child(1){
+    width: 10%;
+   padding-left: 4%;
+   color: #9fa5a5;
+}
+#down-bar-logo{
+    display: flex;
+}
+
+#down-bar-logo>i{
+   margin-right: 2.5em;
+   margin-top: 1em;
+  color: #d2d2d2;
+   
+}
+
+

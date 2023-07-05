@@ -1,0 +1,43 @@
+#footer{
+    width: 100%;
+    border: 1px solid red;
+    height: 300px;
+}
+
+#footer-img{
+    width: 100%;
+    margin: auto;
+    height: 100px;
+    border: 1px solid red;
+    background-image: url("https://www.tatacliq.com/src/general/components/img/Frame22222.svg");
+    background-size: 100% 100%;
+    
+    margin-top: 5%;
+}
+
+#footer-img>img{
+    margin-left: 40%;
+   margin-top: -2em;
+}
+
+#footer-content-info{
+    width: 100%;
+    border: 1px solid blue;
+    font-size: small;
+    line-height: 28px;
+    color: #4a4a4a;
+    margin-top: 3%;
+   
+}
+#footer-content-info>div{
+    display: flex;
+    width: 85%;
+    margin: auto;
+    border: 1px solid blue;
+    justify-content: space-between;
+
+}
+#footer-content-info>div>div:last-child{
+    border: 1px solid blue;
+
+}
