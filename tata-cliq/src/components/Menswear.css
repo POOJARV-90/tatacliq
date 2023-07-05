@@ -33,12 +33,12 @@ width: 100%;
 }
 #payment-bank{
     width: 100%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
    
     
 }
 #payment-bank>div{
-    border: 1px solid green;
+    /* border: 1px solid green; */
 
     width: 90%;
     margin: auto;
@@ -47,14 +47,14 @@ width: 100%;
 }
 #payment-bank>div>div{
     width: 35%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 
 }
 .head-tag-img>div{
  margin: auto;
     width: 80%;
    height: 130px;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     margin-top: 5%;
     margin-bottom: 5%;
 
@@ -75,7 +75,7 @@ width: 100%;
     justify-content: space-between;
     margin: auto;
     width: 70%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 }
 .four-img>div>div{
@@ -98,7 +98,7 @@ width: 100%;
 .six-img>div{
     width: 80%;
     /* height: 500px; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 margin: auto;
 display: flex;
 flex-wrap: wrap;
@@ -106,13 +106,13 @@ justify-content: space-around;
 
 }
 .six-img>div>div{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 45%;
     margin-top: 3%;
 }
 
 .six-img>div>div>div>img{
-    border: 10px solid red;
+    /* border: 10px solid red; */
     width: 100%;
    
 }

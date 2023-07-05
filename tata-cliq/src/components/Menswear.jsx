@@ -99,7 +99,7 @@ const Menswear = () => {
 
                 <div className='head-tag-img'>
                     <div>
-                        <img src="https://assets.tatacliq.com/medias/sys_master/images/45993134424094.jpg" alt="" />
+                        <img src="https://assets.tatacliq.com/medias/sys_master/images/47396048699422.jpg" alt="" />
                     </div>
 
                 </div>
@@ -107,24 +107,12 @@ const Menswear = () => {
                 <div className='six-img'>
                     <div>
                     <div>
-                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47627124441118.jpg" alt="" /></div>
+                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396048764958.jpg" alt="" /></div>
                     </div>
                     <div>
-                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47627124506654.jpg" alt="" /></div>
+                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396048830494.jpg" alt="" /></div>
                     </div>
-                    <div>
-                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47627124572190.jpg" alt="" /></div>
-                    </div>
-
-                    <div>
-                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47627124441118.jpg" alt="" /></div>
-                    </div>
-                    <div>
-                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47627124703262.jpg" alt="" /></div>
-                    </div>
-                    <div>
-                        <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47627124572190.jpg" alt="" /></div>
-                    </div>
+                   
 
                     </div>
                     
@@ -132,7 +120,7 @@ const Menswear = () => {
 
                 <div className='head-tag-img'>
                     <div>
-                        <img src="https://assets.tatacliq.com/medias/sys_master/images/45993134424094.jpg" alt="" />
+                        <img src="https://assets.tatacliq.com/medias/sys_master/images/47396049420318.jpg" alt="" />
                     </div>
 
                 </div>
@@ -140,17 +128,17 @@ const Menswear = () => {
                 <div className='four-img'>
                     <div>
 
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265273886.jpg" alt="" /></div>
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265208350.jpg" alt="" /></div>
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265142814.jpg" alt="" /></div>
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265077278.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396048961566.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396049027102.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396049092638.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396049158174.jpg" alt="" /></div>
                     </div>
                     
                 </div>
 
                 <div className='head-tag-img'>
                     <div>
-                        <img src="https://assets.tatacliq.com/medias/sys_master/images/45993134424094.jpg" alt="" />
+                        <img src="https://assets.tatacliq.com/medias/sys_master/images/47396050206750.jpg" alt="" />
                     </div>
 
                 </div>
@@ -158,10 +146,28 @@ const Menswear = () => {
                 <div className='four-img'>
                     <div>
 
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265273886.jpg" alt="" /></div>
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265208350.jpg" alt="" /></div>
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265142814.jpg" alt="" /></div>
-                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47603265077278.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396051419166.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396051484702.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396051550238.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396051615774.jpg" alt="" /></div>
+                    </div>
+                    
+                </div>
+
+                <div className='head-tag-img'>
+                    <div>
+                        <img src="https://assets.tatacliq.com/medias/sys_master/images/47396050829342.jpg" alt="" />
+                    </div>
+
+                </div>
+
+                <div className='four-img'>
+                    <div>
+
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396050894878.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396050960414.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396051025950.jpg" alt="" /></div>
+                    <div><img src="https://assets.tatacliq.com/medias/sys_master/images/47396051091486.jpg" alt="" /></div>
                     </div>
                     
                 </div>
