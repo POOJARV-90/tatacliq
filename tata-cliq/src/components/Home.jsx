@@ -1,5 +1,4 @@
-import React from 'react'
-import './Home2.css'
+import "./../../src/components/Home2.css"
 
 
 const Home = () => {

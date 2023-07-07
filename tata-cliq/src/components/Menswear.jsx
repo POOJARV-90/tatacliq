@@ -1,5 +1,4 @@
-import React from 'react'
-import './Menswear.css'
+import "./../../src/components/Menswear.css"
 
 const Menswear = () => {
     return (
