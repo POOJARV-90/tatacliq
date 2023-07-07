@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import "./Menswear.css"
 
 const Menswear = () => {
+    const router = useNavigate();
+
+    function toGoto() {
+      router("/MensMultiplepro");
+    }
     return (
         <>
             <div id='body'>
@@ -8,7 +14,7 @@ const Menswear = () => {
                     <img src="https://assets.tatacliq.com/medias/sys_master/images/47513566183454.jpg" alt="" />
                 </div>
                 <div id='all-categories'>
-                    <div> <img src="https://assets.tatacliq.com/medias/sys_master/images/47396042702878.jpg" alt="" /></div>
+                    <div onClick={toGoto}> <img src="https://assets.tatacliq.com/medias/sys_master/images/47396042702878.jpg" alt="" /></div>
                     <div> <img src="https://assets.tatacliq.com/medias/sys_master/images/47396042768414.jpg" alt="" /></div>
                     <div> <img src="https://assets.tatacliq.com/medias/sys_master/images/47396042833950.jpg" alt="" /></div>
                     <div> <img src="https://assets.tatacliq.com/medias/sys_master/images/47396042899486.jpg" alt="" /></div>
