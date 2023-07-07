@@ -1,4 +1,4 @@
-import "./../../src/components/Menswear.css"
+import "./Menswear.css"
 
 const Menswear = () => {
     return (

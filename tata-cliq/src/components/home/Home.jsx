@@ -1,4 +1,4 @@
-import "./../../src/components/Home2.css"
+import "./Home2.css"
 
 
 const Home = () => {

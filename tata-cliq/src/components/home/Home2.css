@@ -10,13 +10,16 @@
   padding-top: 10%;
 }
 #scroll-ad {
+  height: 60vh;
   width: 100%;
 }
 #scroll-ad > img {
+  height:100%;
   width: 100%;
 }
 
 #all-categories {
+  height: 20vh;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -27,8 +30,10 @@
 }
 #all-categories > div > img {
   width: 100%;
+  height: 100%;
 }
 #payment-bank {
+  height: 20vh;
   width: 100%;
 }
 #payment-bank > div {
