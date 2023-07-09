@@ -183,6 +183,7 @@
    border-radius: 5px;
    /* padding: 0.1%; */
    transition-delay: 100ms;
+  cursor: pointer;
 
 }
 #right>div:hover{

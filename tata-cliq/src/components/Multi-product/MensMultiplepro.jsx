@@ -5,7 +5,7 @@ const MensMultiplepro = () => {
   const router = useNavigate();
 
   function toGo() {
-    router("/");
+    router("/SingleProduct");
   }
   return (
     <>
@@ -22,7 +22,7 @@ const MensMultiplepro = () => {
                 <span>Sort by :</span> <span>Popularity</span>
                 <i class="fa-solid fa-arrow-down-short-wide "></i>
               </div>
-              <div onClick={toGo}>
+              <div>
                 <img
                   src="https://www.tatacliq.com/src/plp/components/img/list.svg"
                   alt=""
@@ -189,6 +189,36 @@ const MensMultiplepro = () => {
               </div>
             </div>
             <div id="right">
+
+            <div  onClick={toGo}>
+                <div>
+                  <img
+                    src="https://img.tatacliq.com/images/i10/437Wx649H/MP000000016789927_437Wx649H_202303091302221.jpeg"
+                    alt=""
+                  />
+                  <img
+                    src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
+                    alt=""
+                  />
+                  <img
+                    src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
+                    alt=""
+                  />
+                  <div>New</div>
+                </div>
+
+                <h2>Red cheif</h2>
+                <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
+                <p>
+                  {" "}
+                  <b>₹2115</b> <s>₹4699</s>
+                </p>
+                <span>
+                  4.5 <i class="fa-solid fa-star fa-xs"></i>
+                </span>
+                <b>(10)</b>
+                <p>Limited stock</p>
+              </div>
               <div>
                 <div>
                   <img
@@ -305,7 +335,7 @@ const MensMultiplepro = () => {
                 <b>(10)</b>
                 <p>Limited stock</p>
               </div>
-              <div>
+              <div  onClick={toGo}>
                 <div>
                   <img
                     src="https://img.tatacliq.com/images/i10/437Wx649H/MP000000016789927_437Wx649H_202303091302221.jpeg"
