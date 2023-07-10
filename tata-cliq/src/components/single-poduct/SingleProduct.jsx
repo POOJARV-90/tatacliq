@@ -1,9 +1,11 @@
 import React from "react";
 import "./SingleProduct.css";
+import Navbar from "../Navbar";
 
 const SingleProduct = () => {
   return (
     <>
+    <Navbar/>
       <div id="single-pro-body">
         <div id="Container">
           <div id="left-container">

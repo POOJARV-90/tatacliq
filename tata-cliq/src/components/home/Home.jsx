@@ -1,9 +1,11 @@
+import Navbar from "../Navbar"
 import "./Home2.css"
 
 
 const Home = () => {
     return (
         <>
+         <Navbar/>
             <div id='body'>
                 <div id='scroll-ad'>
                     <img src="https://assets.tatacliq.com/medias/sys_master/images/47627125227550.jpg" alt="" />

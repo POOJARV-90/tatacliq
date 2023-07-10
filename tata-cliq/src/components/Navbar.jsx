@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const[display,setDisplay] = useState(false)
+    const gotopro = useNavigate();
+
+    function gotoprofile() {
+        gotopro("/Profile");
+    }
+    
+    // const handleclick = () => {
+    //     setDisplay(!display)
+    // }
+    // const gayab = () =>{
+    //     setDisplay(!display)
+    // }
+
+    const handleMouseEnter = () => {
+        setDisplay(true)
+      }
+    
+      const handleMouseLeave = () => {
+        setDisplay(false)
+      }
     return (
         <>
         <div id='navbar'>
@@ -10,16 +32,31 @@ const Navbar = () => {
             </div>
             <div id='nav-option'>
 
-                <div id='up-bar'>
+                <div id='up-bar'onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
                     <span>Tata CLiQ Luxury</span>
                     <span>
                         <span>CLiQ Cash</span>
                         <span>Gift Card</span>
                         <span>CLiQ Care</span>
                         <span>Track Orders</span>
-                        <span>Sign in / Sign Up</span>
+                        <span><i class="fa-regular fa-circle-user fa-lg"></i></span>
+                        <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><  i class="fa-solid fa-chevron-down fa-lg"></i></span>
 
                     </span>
+                    { display &&
+                     <div id='profile-down'>
+                       <div onClick={gotoprofile}><img src="https://www.tatacliq.com/src/general/components/img/profile.png" alt=""  /> <p>My Account</p></div>
+                       <div><img src="https://www.tatacliq.com/src/general/components/img/order-history.svg" alt="" /> <p>Order History</p></div>
+                       <div><img src="https://www.tatacliq.com/src/general/components/img/WL5.svg" alt="" /> <p>My Wishlist</p></div>
+                       <div><img src="https://www.tatacliq.com/src/account/components/img/alert.svg" alt="" /> <p>Alert & Coupon</p></div>
+                       <div><img src="https://www.tatacliq.com/src/account/components/img/giftCards.svg" alt="" /> <p>Gift Card</p></div>
+                       <div><img src="https://www.tatacliq.com/src/account/components/img/cliqCash.svg" alt="" /> <p>CLiQ Cash</p></div>
+                       <div><img src="https://www.tatacliq.com/src/account/components/img/settings.svg" alt="" /> <p>Logout</p></div>
+
+                     </div>
+}
+
+                   
 
                 </div>
                 <div id='down-bar'>

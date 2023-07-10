@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Menswear.css"
+import Navbar from "../Navbar";
 
 const Menswear = () => {
     const router = useNavigate();
@@ -9,6 +10,7 @@ const Menswear = () => {
     }
     return (
         <>
+        <Navbar/>
             <div id='body'>
                 <div id='scroll-ad'>
                     <img src="https://assets.tatacliq.com/medias/sys_master/images/47513566183454.jpg" alt="" />

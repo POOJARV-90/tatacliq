@@ -10,19 +10,22 @@ import Menswear from './components/menswear/Menswear';
 import MensMultiplepro from './components/Multi-product/MensMultiplepro';
 import SingleProduct from './components/single-poduct/SingleProduct';
 import Profile from './components/Profile-page/Profile';
+import Cart from './components/cart/Cart';
 
 
 function App() {
   return (
     <div>
       
-      <Navbar/>
+      {/* <Navbar/> */}
       <Routes>
+         <Route exact  element={<Navbar/>}/>
         <Route exact path='/' element ={<Home/>}/>
         <Route exact path='/Menswear' element ={<Menswear/> }/>
         <Route exact path='/MensMultiplepro' element={<MensMultiplepro/>}/>
         <Route exact path='/SingleProduct' element={<SingleProduct/>}/>
         <Route exact path='/Profile' element={<Profile/>}/>
+        <Route exact path='/Cart' element={<Cart/>}/>
   
 
         

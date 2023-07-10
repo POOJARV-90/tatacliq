@@ -1,3 +1,4 @@
+import Navbar from "../Navbar";
 import "./MensMultiplepro.css";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +10,7 @@ const MensMultiplepro = () => {
   }
   return (
     <>
+     <Navbar/>
       <div id="parent">
         <div id="head1">
           <h1>Men's winter wear</h1>

@@ -1,9 +1,11 @@
 import React from "react";
 import "./Profile.css";
+import Navbar from "../Navbar";
 
 const Profile = () => {
   return (
     <>
+    <Navbar/>
       <div id="Profile-body">
 
         <div id="another">
@@ -101,19 +103,88 @@ Profile</span>
         <div id="Right-pro">
         
         <h3>General Information </h3>
-
         <div>
-          <p>
-            <span></span>
-            <span></span>
-          </p>
+          <p><span>Basic Details</span> <span>Add</span> </p>
+
+          <div>
+
+            <div>
+              <div>First Name</div>
+              <input type="text" placeholder="First Name"/>
+            </div>
+
+             <div>
+              <div>Last Name</div>
+              <input type="text" placeholder="Last Name" />
+            </div>
+
+             <div>
+              <div>Date of Birth</div>
+              <input type="text" placeholder="dd-mm-yyyy" />
+            </div>
+
+
+          </div>
+
+          
+
+          
+
+
+        </div>
+
+         <div>
+          <p><span>Contact Details</span> <span>Edit</span> </p>
+
+           <div>
+
+            <div>
+              <div>Mobile Number</div>
+              <input type="text" placeholder="Mobile Number"/>
+            </div>
+
+             <div>
+              <div>E-mail</div>
+              <input type="text" placeholder="Email"/>
+            </div>
+
+           
+
+
+          </div>
+
+         
+
+
+        </div>
+
+         <div>
+          <p><span>Personal Details</span> <span>Add</span> </p>
+
+         <div>
+
+            <div>
+              <div>Gender</div>
+              <input type="text" />
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+       
+        </div>
+        <div id="profile-info">
+
+         <div></div>
+
+         <p>poojarv@gmail.com</p>
 
 
 
         </div>
-        
-        </div>
-        <div id="profile-info"></div>
 
         </div>
       </div>
