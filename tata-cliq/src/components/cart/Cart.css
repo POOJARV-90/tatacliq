@@ -1,15 +1,272 @@
-#xyz {
+#xyz{
   width: 100%;
   /* height: 100px; */
   border: 1px solid black;
   position: fixed;
   top: 0%;
   background-color: #212121;
-  padding: 1%;
+  /* padding: 1%; */
 }
+
+#body-cart{
+  width: 100%;
+ 
+}
+#xyz>div{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  /* border: 1px solid white; */
+  justify-content: space-between;
+  padding: 1%;
+  align-items: center;
+}
+#xyz>div>div:nth-child(1)>img{
+  width: 8%;
+}
+
+
+
+#xyz>div>div:nth-child(2){
+  width: 25px;
+  color: white;
+  border: 1px solid white;
+  height: 25px;
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  margin-right: 20px;
+}
+#xyz>div>div:nth-child(2)>img{
+  width: 100%;
+  background-color: white;
+  border-radius: 50%;
+}
+#xyz>div>div:nth-child(2)>i{
+  color:  white;
+  margin-left: 20px;
+}
+#other-bar{
+  width: 100%;
+  /* border: 1px solid red; */
+  /* height: 100px; */
+  top: 70px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5%;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+#other-bar>div:nth-child(1){
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 4.5%;
+}
+#other-bar>p:nth-child(2){
+font-size: 16px;
+margin-right:3.5%;
+
+}
+
 
 #cart-body {
   margin-top: 150px;
-  border: 1px solid rgb(188, 19, 19);
+  /* border: 1px solid blue; */
+  width: 100%;
+  background-color: #ececec;
+  padding-top: 5%;
+  padding-bottom: 5%;
+ 
 }
+#cart-body>div{
+  /* border: 1px solid red; */
+  /* height:300px; */
+  width: 90%;
+  margin: auto;
+}
+#cart-details{
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+#left-cart{
+  width: 65%;
+  /* border: 1px solid red; */
+  /* height: 200px; */
+
+}
+#into-cart{
+  width: 100%;
+  height: 40px;
+  /* border: 1px solid red; */
+  align-items: center;
+  
+}
+#into-cart>p{
+  /* width: 100%; */
+  background-image: linear-gradient(white,#c3d7d7);
+  background-color: aquamarine;
+  height: 43px;
+  text-align: center;
+ color: #237784;
+ border-radius: 5px;
+}
+
+#into-cart>p>img{
+  padding-top: 1%;
+}
+#cart-product-added{
+  width: 100%;
+  /* border: 1px solid blue; */
+  background-color: white;
+  /* height: 200px; */
+  margin-top: 2%;
+  display: flex;
+  padding: 2%;
+  border-radius: 5px;
+}
+#cart-product-img{
+  width: 18%;
+ 
+  
+}
+#cart-product-img>img{
+  width: 100%;
+  border-radius: 5px;
+}
+#cart-product-added>div:nth-child(2){
+  width: 80%;
+  color: #4a4a4a;
+  margin-left: 3%;
+}
+#cart-product-added>div:nth-child(2)>div:nth-child(1){
+  justify-content: space-between;
+  display: flex;
+  /* border: 1px solid red; */
+  
+  width: 100%;
+}
+#cart-product-added>div:nth-child(2)>div:nth-child(1)>span{
+  margin-left: 20%;
+}
+#abc>span{
+  margin-right: 10%;
+}
+#sum-up{
+  width: 100%;
+  /* border: 1px solid blue; */
+  margin-top: 5%;
+  align-items: center;
+  height: 30px;
+  border-top: 1px solid #ccc8c8;
+  padding-top: 1.5%;
+}
+#sum-up>select{
+  /* width: 10%; */
+  border: none;
+}
+#total{
+  margin-left: 45%;
+  margin-right: 8%;
+}
+#button-0{
+  margin-left: 18em;
+  margin-top: 4%;
+  width: 30%;
+  padding: 1.5%;
+  border: 2px solid #212121;
+  border-radius: 20px;
+  font-size: 15px;
+  color: #212121;
+  font-weight: 600;
+background-color: transparent;
+}
+
+
+
+#right-cart{
+  width: 32%;
+  /* border: 1px solid red; */
+  /* height: 200px; */
+}
+/* #coupan{
+  border: 1px solid red;
+} */
+#coupan>div:nth-child(1){
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+  border-radius: 4px;
+  padding: 4%;
+  background-color: white;
+}
+
+#coupan>div:nth-child(1)>i{
+  margin-left: 50%;
+}
+#coupan>div:nth-child(1)>img{
+  /* border: 1px solid red; */
+  width: 8%;
+}
+#cart-total-amt{
+  width: 100%;
+  /* border: 1px solid red; */
+  margin-top: 5%;
+  line-height: 35px;
+  padding: 5%;
+  background-color: white;
+  border-radius: 5px;
+}
+#cart-total-amt>div{
+  display: flex;
+  justify-content: space-between;
+}
+
+#cart-total-amt>div>span:nth-child(){
+  width: 20%;
+}
+#cart-total-amt>div>span:nth-child(2){
+  text-align: right;
+}
+.color{
+  color: rgb(16, 124, 16);
+}
+#whole-amt{
+  width: 100%;
+  /* border: 1px solid red; */
+  /* height: 70px; */
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+  background-color: white;
+  border-radius: 5px;
+
+  
+
+}
+.font-style{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+#checkout{
+  width: 45%;
+  height: 45px;
+  border-radius: 20px;
+  background-color: #da1c5c;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  border: none;
+}
+
+
+
+
+
+
 

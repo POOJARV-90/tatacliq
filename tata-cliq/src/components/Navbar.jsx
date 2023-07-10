@@ -9,6 +9,12 @@ const Navbar = () => {
     function gotoprofile() {
         gotopro("/Profile");
     }
+
+    const gotocar = useNavigate();
+
+    function gotoCart() {
+        gotocar("/Cart");
+    }
     
     // const handleclick = () => {
     //     setDisplay(!display)
@@ -66,9 +72,9 @@ const Navbar = () => {
                     <div> <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="search" placeholder='Search for Brands' /></div>
                    </div>
-                   <div id='down-bar-logo'>
+                   <div id='down-bar-logo'onClick={gotoCart}>
                    <i class="fa-regular fa-heart fa-lg"></i>
-                   <i class="fa-solid fa-bag-shopping fa-lg"></i>
+                   <  i class="fa-solid fa-bag-shopping fa-lg"></i>
                    </div>
 
                 </div>
