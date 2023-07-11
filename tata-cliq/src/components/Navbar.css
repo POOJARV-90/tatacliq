@@ -88,6 +88,15 @@ color: white;
 #down-bar{
    display: flex; 
 }
+
+#categories-down{
+    width: 78%;
+    height: 200px;
+    background-color: white;
+    margin-left: 2%;
+    color: black;
+
+}
 #down-bar>div:nth-child(3){
     /* border: 1px solid green; */
     width: 60%;

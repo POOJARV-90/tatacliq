@@ -4,7 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const[display,setDisplay] = useState(false)
+    const[open,setOpen] = useState(false)
     const gotopro = useNavigate();
+
+    // -----------------------for cart----------------------
 
     function gotoprofile() {
         gotopro("/Profile");
@@ -16,13 +19,6 @@ const Navbar = () => {
         gotocar("/Cart");
     }
     
-    // const handleclick = () => {
-    //     setDisplay(!display)
-    // }
-    // const gayab = () =>{
-    //     setDisplay(!display)
-    // }
-
     const handleMouseEnter = () => {
         setDisplay(true)
       }
@@ -30,6 +26,14 @@ const Navbar = () => {
       const handleMouseLeave = () => {
         setDisplay(false)
       }
+    //   --------------------for categories--------------------------
+
+    const letOpen = () => {
+        setOpen(true)
+    }
+    const letClose = () => {
+        setOpen(false)
+    }
     return (
         <>
         <div id='navbar'>
@@ -38,7 +42,7 @@ const Navbar = () => {
             </div>
             <div id='nav-option'>
 
-                <div id='up-bar'onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+                <div id='up-bar' >
                     <span>Tata CLiQ Luxury</span>
                     <span>
                         <span>CLiQ Cash</span>
@@ -46,12 +50,12 @@ const Navbar = () => {
                         <span>CLiQ Care</span>
                         <span>Track Orders</span>
                         <span><i class="fa-regular fa-circle-user fa-lg"></i></span>
-                        <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><  i class="fa-solid fa-chevron-down fa-lg"></i></span>
+                        <span onMouseEnter={handleMouseEnter}><  i class="fa-solid fa-chevron-down fa-lg"></i></span>
 
                     </span>
                     { display &&
-                     <div id='profile-down'>
-                       <div onClick={gotoprofile}><img src="https://www.tatacliq.com/src/general/components/img/profile.png" alt=""  /> <p>My Account</p></div>
+                     <div id='profile-down' onMouseLeave={handleMouseLeave}>
+                       <div onClick={gotoprofile}  ><img src="https://www.tatacliq.com/src/general/components/img/profile.png" alt=""  /> <p>My Account</p></div>
                        <div><img src="https://www.tatacliq.com/src/general/components/img/order-history.svg" alt="" /> <p>Order History</p></div>
                        <div><img src="https://www.tatacliq.com/src/general/components/img/WL5.svg" alt="" /> <p>My Wishlist</p></div>
                        <div><img src="https://www.tatacliq.com/src/account/components/img/alert.svg" alt="" /> <p>Alert & Coupon</p></div>
@@ -66,7 +70,7 @@ const Navbar = () => {
 
                 </div>
                 <div id='down-bar'>
-                   <div className='margin-top'>Categories <i class="fa-solid fa-angle-down"></i></div>
+                   <div className='margin-top' onMouseEnter={letOpen} >Categories <i class="fa-solid fa-angle-down"></i></div>
                    <div className='margin-top'>Brand <i class="fa-solid fa-angle-down"></i></div>
                    <div>
                     <div> <i class="fa-solid fa-magnifying-glass"></i>
@@ -76,8 +80,20 @@ const Navbar = () => {
                    <i class="fa-regular fa-heart fa-lg"></i>
                    <  i class="fa-solid fa-bag-shopping fa-lg"></i>
                    </div>
+ 
 
                 </div>
+
+                { open &&
+
+               <div id='categories-down'onMouseLeave={letClose} >
+               
+               <p>zjcjdhjkhdjkdhkjdhjdh</p>
+               xbmXBmXBmXB
+
+
+               </div>
+}
             </div>
            
 
