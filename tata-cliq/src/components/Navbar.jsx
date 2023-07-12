@@ -91,7 +91,7 @@ const Navbar = () => {
                 </div>
                 <div id='down-bar' >
                    <div className='margin-top' onMouseEnter={letOpen } onMouseLeave={letClose} style={{
-                    backgroundColor : isbackgroundColor ? "white": "black",
+                    backgroundColor : isbackgroundColor ? "white": "#212121",
                     color : isbackgroundColor ? "black" : "white"
                    }}  > 
                     Categories <i class="fa-solid fa-angle-down"></i></div>

@@ -1,23 +1,15 @@
 [
     {
-        "p_id": "1",
-        "name": "Awdiz Institute",
-        "price": 9876000,
-        "Quantity": 20,
-        "instock": "Yes",
-        "description": "Institution",
-        "category": "education"
+        "image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000014189432_437Wx649H_202208202251501.jpeg",
+        "brand": "W",
+        "description": "Red Chief Blue Slim Fit Lightly Washed Jeans",
+        "price": 2115,
+        "discount" : 4699,
+        "star": 4.5,
+        "instock": "(10)",
+        "other": "limited stock",
+        "New" : "New" 
     }
-    ,
-
-    {
-        "p_id": "2",
-        "name": "Awdiz Institute",
-        "price": 9876000,
-        "Quantity": 20,
-        "instock": "Yes",
-        "description": "Institution",
-        "category": "education"
-    }
+    
 
 ]
