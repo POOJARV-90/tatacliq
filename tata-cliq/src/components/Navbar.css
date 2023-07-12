@@ -95,6 +95,7 @@ color: white;
     background-color: white;
     margin-left: 2%;
     color: black;
+    border: 1px solid red;
 
 }
 #down-bar>div:nth-child(3){
@@ -102,6 +103,14 @@ color: white;
     width: 60%;
    
 }
+#down-bar>div:nth-child(1){
+   border: 1px solid green;
+   /* height: 100%; */
+   background-color:black;
+   color: black;
+
+}
+
 #down-bar>div{
     /* align-items: center; */
     width: auto;
@@ -113,7 +122,7 @@ color: white;
     margin-left: 2%;
 }
 .margin-top:hover{
-    background-color: white;
+    /* background-color: white; */
     color: black;
     
 }

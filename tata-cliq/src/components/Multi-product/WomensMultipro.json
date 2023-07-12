@@ -1,0 +1,23 @@
+[
+    {
+        "p_id": "1",
+        "name": "Awdiz Institute",
+        "price": 9876000,
+        "Quantity": 20,
+        "instock": "Yes",
+        "description": "Institution",
+        "category": "education"
+    }
+    ,
+
+    {
+        "p_id": "2",
+        "name": "Awdiz Institute",
+        "price": 9876000,
+        "Quantity": 20,
+        "instock": "Yes",
+        "description": "Institution",
+        "category": "education"
+    }
+
+]

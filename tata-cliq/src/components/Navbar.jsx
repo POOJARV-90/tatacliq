@@ -6,6 +6,19 @@ const Navbar = () => {
     const[display,setDisplay] = useState(false)
     const[open,setOpen] = useState(false)
     const gotopro = useNavigate();
+    const[ isbackgroundColor , setIsbackgroundColor] = useState(false)
+    // const [backgroundColor, setBackgroundColor] = useState('lavender');
+    // const styles = {
+    //     backgroundColor,
+    //     color: 'white',
+    //     padding: '20px',yy
+    //     borderRadius: '5px',
+    //     cursor: 'pointer'
+    
+    //   };
+    // const handleButtonClick = () => {
+    //     setBackgroundColor('pink');
+    //   };
 
     // -----------------------for cart----------------------
 
@@ -26,14 +39,21 @@ const Navbar = () => {
       const handleMouseLeave = () => {
         setDisplay(false)
       }
+
     //   --------------------for categories--------------------------
 
     const letOpen = () => {
         setOpen(true)
+        setIsbackgroundColor(true)
+
     }
     const letClose = () => {
         setOpen(false)
+        setIsbackgroundColor(false)
     }
+    // const xyz = () => {
+    //     setIsbackgroundColor('white')
+    // }
     return (
         <>
         <div id='navbar'>
@@ -69,8 +89,12 @@ const Navbar = () => {
                    
 
                 </div>
-                <div id='down-bar'>
-                   <div className='margin-top' onMouseEnter={letOpen} >Categories <i class="fa-solid fa-angle-down"></i></div>
+                <div id='down-bar' >
+                   <div className='margin-top' onMouseEnter={letOpen } onMouseLeave={letClose} style={{
+                    backgroundColor : isbackgroundColor ? "white": "black",
+                    color : isbackgroundColor ? "black" : "white"
+                   }}  > 
+                    Categories <i class="fa-solid fa-angle-down"></i></div>
                    <div className='margin-top'>Brand <i class="fa-solid fa-angle-down"></i></div>
                    <div>
                     <div> <i class="fa-solid fa-magnifying-glass"></i>
@@ -86,7 +110,7 @@ const Navbar = () => {
 
                 { open &&
 
-               <div id='categories-down'onMouseLeave={letClose} >
+               <div id='categories-down' onMouseEnter={letOpen } onMouseLeave={letClose} >
                
                <p>zjcjdhjkhdjkdhkjdhjdh</p>
                xbmXBmXBmXB

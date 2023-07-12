@@ -10,7 +10,7 @@ const MensMultiplepro = () => {
   }
   return (
     <>
-     <Navbar/>
+      <Navbar />
       <div id="parent">
         <div id="head1">
           <h1>Men's winter wear</h1>
@@ -105,10 +105,7 @@ const MensMultiplepro = () => {
 
                 <div>
                   <p>
-                    <span></span>{" "}
-                    <span>
-                      Trousers & Chinos 
-                    </span>
+                    <span></span> <span>Trousers & Chinos</span>
                   </p>
                   <p>343</p>
                 </div>
@@ -191,8 +188,8 @@ const MensMultiplepro = () => {
               </div>
             </div>
             <div id="right">
-
-            <div  onClick={toGo}>
+              <div onClick={toGo}>
+                
                 <div>
                   <img
                     src="https://img.tatacliq.com/images/i10/437Wx649H/MP000000016789927_437Wx649H_202303091302221.jpeg"
@@ -337,7 +334,7 @@ const MensMultiplepro = () => {
                 <b>(10)</b>
                 <p>Limited stock</p>
               </div>
-              <div  onClick={toGo}>
+              <div onClick={toGo}>
                 <div>
                   <img
                     src="https://img.tatacliq.com/images/i10/437Wx649H/MP000000016789927_437Wx649H_202303091302221.jpeg"
