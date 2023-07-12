@@ -1,8 +1,9 @@
-import React from "react";
-import womenproduct from "../Multi-product/WomensMultipro.json";
-import Navbar from "../Navbar";
+import React from 'react'
+import homeKitdata from "../Multi-product/HomeKitchen.json"
+import Navbar from '../Navbar'
 
-const WomensMultiplepro = () => {
+
+const HomeKit = () => {
   return (
     <>
       <Navbar />
@@ -185,13 +186,13 @@ const WomensMultiplepro = () => {
             <div id="right">
               {/* onClick={toGo} */}
 
-              {womenproduct.map((WomensMultipro) => (
+              {homeKitdata.map((HomeKitchen) => (
                   <div>
                  
                 
 
                   <div>
-                  <img id='img'  src={WomensMultipro.image} />
+                  <img id='img'  src={HomeKitchen.image} />
                     <img
                       src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
                       alt=""
@@ -200,20 +201,20 @@ const WomensMultiplepro = () => {
                       src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
                       alt=""
                     />
-                    <div> {WomensMultipro.New}</div>
+                    <div> {HomeKitchen.New}</div>
                   </div>
   
-                  <h2>{WomensMultipro.brand}</h2>
-                  <p>{WomensMultipro.description}</p>
+                  <h2>{HomeKitchen.brand}</h2>
+                  <p>{HomeKitchen.description}</p>
                   <p>
-                    {" "}
-                    <b> ₹{WomensMultipro.price}</b> <s>₹ {WomensMultipro.discount}</s>
+                    
+                    <b> ₹{HomeKitchen.price}</b> <s>₹ {HomeKitchen.discount}</s>
                   </p>
                   <span>
-                    {WomensMultipro.star} <i class="fa-solid fa-star fa-xs"></i>
+                    {HomeKitchen.star} <i class="fa-solid fa-star fa-xs"></i>
                   </span>
-                  <b> {WomensMultipro.instock} </b>
-                  <p> {WomensMultipro.other} </p>
+                  <b> {HomeKitchen.instock} </b>
+                  <p> {HomeKitchen.other} </p>
 
                 </div>
                 ))}
@@ -223,7 +224,7 @@ const WomensMultiplepro = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default WomensMultiplepro;
+export default HomeKit

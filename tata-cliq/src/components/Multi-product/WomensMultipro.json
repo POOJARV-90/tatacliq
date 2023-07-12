@@ -1,15 +1,312 @@
 [
     {
         "image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000014189432_437Wx649H_202208202251501.jpeg",
-        "brand": "W",
-        "description": "Red Chief Blue Slim Fit Lightly Washed Jeans",
-        "price": 2115,
-        "discount" : 4699,
-        "star": 4.5,
-        "instock": "(10)",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "on offer" 
+       
+
+
+
+
+    },
+
+    {
+        "image" : "https://img.tatacliq.com/images/i9/437Wx649H/MP000000016062393_437Wx649H_202301140417001.jpeg",
+        "brand": "LOV",
+        "description": "LOV by Westside Purple Printed Tiered Dress",
+        "price": 1499,
+        "discount" : 699,
+        "star": 4.9,
+        "instock": "(15)",
+        "other": "limited stock",
+        "New" : "on offer" 
+        
+
+    }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017466404_437Wx649H_202305070231241.jpeg",
+        "brand": " Cottinfab",
+        "description": "Cottinfab Beige & Black Animal Print Wrap Dress",
+        "price": 2199,
+        "discount" : 770,
+        "star": 3.7,
+        "instock": "(161)",
+        "other": "",
+        "New" : "New" 
+
+    }
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000017340222_437Wx649H_202304222230221.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+
+    }
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000009696980_437Wx649H_202106010207031.jpeg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "on offer" 
+    },
+
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016798924_437Wx649H_202303092244211.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
         "other": "limited stock",
         "New" : "New" 
     }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000018117126_437Wx649H_202306271129351.jpeg",
+        "brand": " Cottinfab",
+        "description": "Cottinfab Beige & Black Animal Print Wrap Dress",
+        "price": 2199,
+        "discount" : 770,
+        "star": 3.7,
+        "instock": "(161)",
+        "other": "",
+        "New" : "on offer" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017472921_437Wx649H_202305080131471.jpeg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "New" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016809719_437Wx649H_202303110206001.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000017340123_437Wx649H_202304222225261.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "on offer"  
+    }
+
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016969492_437Wx649H_202303231941451.jpeg",
+        "brand": "LOV",
+        "description": "LOV by Westside Purple Printed Tiered Dress",
+        "price": 1499,
+        "discount" : 699,
+        "star": 4.9,
+        "instock": "(15)",
+        "other": "limited stock",
+        "New" : "on offer" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000013253639_437Wx649H_202206042033361.jpeg",
+        "brand": "LOV",
+        "description": "LOV by Westside Purple Printed Tiered Dress",
+        "price": 1499,
+        "discount" : 699,
+        "star": 4.9,
+        "instock": "(15)",
+        "other": "limited stock",
+        "New" : "on offer" 
+    }
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000014189432_437Wx649H_202208202251501.jpeg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "New" 
+       
+
+
+
+
+    },
+
+    {
+        "image" : "https://img.tatacliq.com/images/i9/437Wx649H/MP000000016062393_437Wx649H_202301140417001.jpeg",
+        "brand": "LOV",
+        "description": "LOV by Westside Purple Printed Tiered Dress",
+        "price": 1499,
+        "discount" : 699,
+        "star": 4.9,
+        "instock": "(15)",
+        "other": "limited stock",
+        "New" : "on offer" 
+        
+
+    }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017466404_437Wx649H_202305070231241.jpeg",
+        "brand": " Cottinfab",
+        "description": "Cottinfab Beige & Black Animal Print Wrap Dress",
+        "price": 2199,
+        "discount" : 770,
+        "star": 3.7,
+        "instock": "(161)",
+        "other": "",
+        "New" : "New" 
+
+    }
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000017340222_437Wx649H_202304222230221.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+
+    }
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000009696980_437Wx649H_202106010207031.jpeg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "New" 
+    },
+
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016798924_437Wx649H_202303092244211.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+    }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000018117126_437Wx649H_202306271129351.jpeg",
+        "brand": " Cottinfab",
+        "description": "Cottinfab Beige & Black Animal Print Wrap Dress",
+        "price": 2199,
+        "discount" : 770,
+        "star": 3.7,
+        "instock": "(161)",
+        "other": "",
+        "New" : "New" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017472921_437Wx649H_202305080131471.jpeg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "New" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016809719_437Wx649H_202303110206001.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000017340123_437Wx649H_202304222225261.jpeg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New"  
+    }
+
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016969492_437Wx649H_202303231941451.jpeg",
+        "brand": "LOV",
+        "description": "LOV by Westside Purple Printed Tiered Dress",
+        "price": 1499,
+        "discount" : 699,
+        "star": 4.9,
+        "instock": "(15)",
+        "other": "limited stock",
+        "New" : "on offer" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000013253639_437Wx649H_202206042033361.jpeg",
+        "brand": "LOV",
+        "description": "LOV by Westside Purple Printed Tiered Dress",
+        "price": 1499,
+        "discount" : 699,
+        "star": 4.9,
+        "instock": "(15)",
+        "other": "limited stock",
+        "New" : "on offer" 
+    }
+
+   
+    
+    
     
 
 ]

@@ -12,6 +12,10 @@ import SingleProduct from './components/single-poduct/SingleProduct';
 import Profile from './components/Profile-page/Profile';
 import Cart from './components/cart/Cart';
 import WomensMultiplepro from './components/Multi-product/WomensMultiplepro';
+import Kidswear from './components/Multi-product/Kidswear';
+import HomeKit from './components/Multi-product/HomeKit';
+
+
 
 
 function App() {
@@ -25,9 +29,12 @@ function App() {
         <Route exact path='/Menswear' element ={<Menswear/> }/>
         <Route exact path='/MensMultiplepro' element={<MensMultiplepro/>}/>
         <Route exact path='/WomensMultiplepro' element={<WomensMultiplepro/>}/>
+        
         <Route exact path='/SingleProduct' element={<SingleProduct/>}/>
         <Route exact path='/Profile' element={<Profile/>}/>
         <Route exact path='/Cart' element={<Cart/>}/>
+        <Route exact path='/Kidswear' element={<Kidswear/>}/>
+        <Route exact path='/HomeKit' element={<HomeKit/>}/>
   
 
         

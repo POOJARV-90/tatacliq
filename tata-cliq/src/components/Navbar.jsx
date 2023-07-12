@@ -7,18 +7,7 @@ const Navbar = () => {
     const[open,setOpen] = useState(false)
     const gotopro = useNavigate();
     const[ isbackgroundColor , setIsbackgroundColor] = useState(false)
-    // const [backgroundColor, setBackgroundColor] = useState('lavender');
-    // const styles = {
-    //     backgroundColor,
-    //     color: 'white',
-    //     padding: '20px',yy
-    //     borderRadius: '5px',
-    //     cursor: 'pointer'
     
-    //   };
-    // const handleButtonClick = () => {
-    //     setBackgroundColor('pink');
-    //   };
 
     // -----------------------for cart----------------------
 

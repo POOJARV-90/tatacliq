@@ -1,15 +1,16 @@
-import React from "react";
-import womenproduct from "../Multi-product/WomensMultipro.json";
-import Navbar from "../Navbar";
+import React from 'react'
+import data from "../Multi-product/KidsMultiplepo.json"
+import Navbar from '../Navbar'
 
-const WomensMultiplepro = () => {
+
+const Kidswear = () => {
   return (
     <>
       <Navbar />
       <div id="parent">
         <div id="head1">
-          <h1>W women's clothing</h1>
-          <p>2007 Products</p>
+          <h1>Kids Girls Clothing</h1>
+          <p>230496 Products</p>
         </div>
 
         <div id="parent2">
@@ -38,7 +39,7 @@ const WomensMultiplepro = () => {
               <div id="de-ca">
                 <div>
                   <h4>Department</h4>
-                  <span>women's Clothing</span>
+                  <span>Kids</span>
                 </div>
 
                 <div>
@@ -185,13 +186,13 @@ const WomensMultiplepro = () => {
             <div id="right">
               {/* onClick={toGo} */}
 
-              {womenproduct.map((WomensMultipro) => (
+              {data.map((KidsMultiplepo) => (
                   <div>
                  
                 
 
                   <div>
-                  <img id='img'  src={WomensMultipro.image} />
+                  <img id='img'  src={KidsMultiplepo.image} />
                     <img
                       src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
                       alt=""
@@ -200,20 +201,20 @@ const WomensMultiplepro = () => {
                       src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
                       alt=""
                     />
-                    <div> {WomensMultipro.New}</div>
+                    {/* <div> {KidsMultiplepo.New}</div> */}
                   </div>
   
-                  <h2>{WomensMultipro.brand}</h2>
-                  <p>{WomensMultipro.description}</p>
+                  <h2>{KidsMultiplepo.brand}</h2>
+                  <p>{KidsMultiplepo.description}</p>
                   <p>
-                    {" "}
-                    <b> ₹{WomensMultipro.price}</b> <s>₹ {WomensMultipro.discount}</s>
+                    
+                    <b> ₹{KidsMultiplepo.price}</b> <s>₹ {KidsMultiplepo.discount}</s>
                   </p>
                   <span>
-                    {WomensMultipro.star} <i class="fa-solid fa-star fa-xs"></i>
+                    {KidsMultiplepo.star} <i class="fa-solid fa-star fa-xs"></i>
                   </span>
-                  <b> {WomensMultipro.instock} </b>
-                  <p> {WomensMultipro.other} </p>
+                  <b> {KidsMultiplepo.instock} </b>
+                  <p> {KidsMultiplepo.other} </p>
 
                 </div>
                 ))}
@@ -223,7 +224,7 @@ const WomensMultiplepro = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default WomensMultiplepro;
+export default Kidswear
