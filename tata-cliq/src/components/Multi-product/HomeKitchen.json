@@ -1,20 +1,284 @@
 [
     {
-        "image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000014189432_437Wx649H_202208202251501.jpeg",
-        "brand": " Gia",
-        "description": "Gia Curves by Westside Black Smocked Dress",
-        "price": 2199,
-        "discount" : 1699,
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017499559_437Wx649H_202305102324311.jpeg",
+        "brand": "  Maspar",
+        "description": "Maspar Colorart Blaize Acid Yellow Cotton 200 TC 256 GSM Single Bed Cover",
+        "price": 3299,
+        "discount" :"",
+        "star": 4.7,
+        "instock": "",
+        "other": "Limited stock!",
+        "New" : "on offer" 
+
+
+    }
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017499586_437Wx649H_202305102325551.jpeg",
+        "brand": "Trident",
+        "description": "Trident Dusk & Dawn Alison Beige & Blue Cotton 144 TC Double Bedsheet ",
+        "price": 1199,
+        "discount" : 1999,
         "star": 4.7,
         "instock": "(14)",
+        "other": "Limited stock!",
+        "New" : "on offer" 
+
+    }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000011644886_437Wx649H_202201020018311.jpeg",
+        "brand": "  Westside Home",
+        "description": "Westside Home Alloy Bar Stripe Cotton Single Fitted Sheet",
+        "price": 1299,
+        "discount" : "",
+        "star": 4.7,
+        "instock": "",
+        "other": "",
+        "New" : "on offer" 
+    }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017804756_437Wx649H_202306020504311.jpeg",
+        "brand": " TARA Sparkling Homes",
+        "description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+        "price": 3999,
+        "discount" : 6999,
+        "star": 4.7,
+        "instock": "",
         "other": "",
         "New" : "on offer" 
        
 
 
+    }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017804746_437Wx649H_202306020504081.jpeg",
+        "brand": " TARA Sparkling Homes",
+        "description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+        "price": 3999,
+        "discount" : 6999,
+        "star": 4.7,
+        "instock": "",
+        "other": "",
+        "New" : "on offer" 
+       
 
 
     }
+,
+{
+    "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017457791_437Wx649H_202305062044131.jpeg",
+    "brand": "  Maspar",
+    "description": "Maspar Colorart Blaize Acid Yellow Cotton 200 TC 256 GSM Single Bed Cover",
+    "price": 3299,
+    "discount" :"",
+    "star": 4.7,
+    "instock": "",
+    "other": "Limited stock!",
+    "New" : "on offer" 
+
+
+}
+,
+
+{
+    "image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000010700055_437Wx649H_202109241324381.jpeg",
+    "brand": "Trident",
+    "description": "Trident Dusk & Dawn Alison Beige & Blue Cotton 144 TC Double Bedsheet ",
+    "price": 1199,
+    "discount" : 1999,
+    "star": 4.7,
+    "instock": "(14)",
+    "other": "Limited stock!",
+    "New" : "on offer" 
+
+}
+,
+{
+    "image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000010265837_437Wx649H_202108121138301.jpeg",
+    "brand": "  Westside Home",
+    "description": "Westside Home Alloy Bar Stripe Cotton Single Fitted Sheet",
+    "price": 1299,
+    "discount" : "",
+    "star": 4.7,
+    "instock": "",
+    "other": "",
+    "New" : "on offer" 
+}
+,
+{
+    "image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000014853414_437Wx649H_202210132329411.jpeg",
+    "brand": " TARA Sparkling Homes",
+    "description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+    "price": 3999,
+    "discount" : 6999,
+    "star": 4.7,
+    "instock": "",
+    "other": "",
+    "New" : "on offer" 
+   
+
+
+}
+,
+{
+    "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017804746_437Wx649H_202306020504081.jpeg",
+    "brand": " TARA Sparkling Homes",
+    "description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+    "price": 3999,
+    "discount" : 6999,
+    "star": 4.7,
+    "instock": "",
+    "other": "",
+    "New" : "on offer" 
+   
+
+
+}
+,
+{
+    "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017499559_437Wx649H_202305102324311.jpeg",
+    "brand": "  Maspar",
+    "description": "Maspar Colorart Blaize Acid Yellow Cotton 200 TC 256 GSM Single Bed Cover",
+    "price": 3299,
+    "discount" :"",
+    "star": 4.7,
+    "instock": "",
+    "other": "Limited stock!",
+    "New" : "on offer" 
+
+
+}
+,
+
+{
+    "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017499586_437Wx649H_202305102325551.jpeg",
+    "brand": "Trident",
+    "description": "Trident Dusk & Dawn Alison Beige & Blue Cotton 144 TC Double Bedsheet ",
+    "price": 1199,
+    "discount" : 1999,
+    "star": 4.7,
+    "instock": "(14)",
+    "other": "Limited stock!",
+    "New" : "on offer" 
+
+}
+,
+{
+    "image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000011644886_437Wx649H_202201020018311.jpeg",
+    "brand": "  Westside Home",
+    "description": "Westside Home Alloy Bar Stripe Cotton Single Fitted Sheet",
+    "price": 1299,
+    "discount" : "",
+    "star": 4.7,
+    "instock": "",
+    "other": "",
+    "New" : "on offer" 
+}
+,
+{
+    "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017804756_437Wx649H_202306020504311.jpeg",
+    "brand": " TARA Sparkling Homes",
+    "description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+    "price": 3999,
+    "discount" : 6999,
+    "star": 4.7,
+    "instock": "",
+    "other": "",
+    "New" : "on offer" 
+   
+
+
+}
+,
+{
+    "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017804746_437Wx649H_202306020504081.jpeg",
+    "brand": " TARA Sparkling Homes",
+    "description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+    "price": 3999,
+    "discount" : 6999,
+    "star": 4.7,
+    "instock": "",
+    "other": "",
+    "New" : "on offer" 
+   
+
+
+}
+,
+{
+"image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017457791_437Wx649H_202305062044131.jpeg",
+"brand": "  Maspar",
+"description": "Maspar Colorart Blaize Acid Yellow Cotton 200 TC 256 GSM Single Bed Cover",
+"price": 3299,
+"discount" :"",
+"star": 4.7,
+"instock": "",
+"other": "Limited stock!",
+"New" : "on offer" 
+
+
+}
+,
+
+{
+"image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000010700055_437Wx649H_202109241324381.jpeg",
+"brand": "Trident",
+"description": "Trident Dusk & Dawn Alison Beige & Blue Cotton 144 TC Double Bedsheet ",
+"price": 1199,
+"discount" : 1999,
+"star": 4.7,
+"instock": "(14)",
+"other": "Limited stock!",
+"New" : "on offer" 
+
+}
+,
+{
+"image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000010265837_437Wx649H_202108121138301.jpeg",
+"brand": "  Westside Home",
+"description": "Westside Home Alloy Bar Stripe Cotton Single Fitted Sheet",
+"price": 1299,
+"discount" : "",
+"star": 4.7,
+"instock": "",
+"other": "",
+"New" : "on offer" 
+}
+,
+{
+"image" : "https://img.tatacliq.com/images/i8/437Wx649H/MP000000014853414_437Wx649H_202210132329411.jpeg",
+"brand": " TARA Sparkling Homes",
+"description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+"price": 3999,
+"discount" : 6999,
+"star": 4.7,
+"instock": "",
+"other": "",
+"New" : "on offer" 
+
+
+
+}
+,
+{
+"image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017804746_437Wx649H_202306020504081.jpeg",
+"brand": " TARA Sparkling Homes",
+"description": "TARA Sparkling Homes Pink Luxury Cotton 350 TC Bed Sheet with 2 Pillow Covers",
+"price": 3999,
+"discount" : 6999,
+"star": 4.7,
+"instock": "",
+"other": "",
+"New" : "on offer" 
+
+
+
+}
+
 
    
     

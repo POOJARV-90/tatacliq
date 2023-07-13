@@ -1,16 +1,16 @@
 import React from 'react'
-import homeKitdata from "../Multi-product/HomeKitchen.json"
+import Accessoriesdata from "../Multi-product/Accessoriespro.json"
 import Navbar from '../Navbar'
 
-
-const HomeKit = () => {
+const Accessories = () => {
   return (
     <>
       <Navbar />
       <div id="parent">
         <div id="head1">
-          <h1>Bed linen</h1>
-          <p>8444 Products</p>
+          <h1>Womens bags
+</h1>
+          <p>34435 Products</p>
         </div>
 
         <div id="parent2">
@@ -39,12 +39,12 @@ const HomeKit = () => {
               <div id="de-ca">
                 <div>
                   <h4>Department</h4>
-                  <span>Home</span>
+                  <span>Accessories</span>
                 </div>
 
                 <div>
                   <h4>Category</h4>
-                  <span>Bed Linen</span>
+                  <span>Women's Bag</span>
                 </div>
               </div>
 
@@ -186,13 +186,13 @@ const HomeKit = () => {
             <div id="right">
               {/* onClick={toGo} */}
 
-              {homeKitdata.map((HomeKitchen) => (
+              {Accessoriesdata.map((Accessoriespro) => (
                   <div>
                  
                 
 
                   <div>
-                  <img id='img'  src={HomeKitchen.image} />
+                  <img id='img'  src={Accessoriespro.image} />
                     <img
                       src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
                       alt=""
@@ -201,20 +201,20 @@ const HomeKit = () => {
                       src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
                       alt=""
                     />
-                    <div> {HomeKitchen.New}</div>
+                    {/* <div> {Accessoriespro.New}</div> */}
                   </div>
   
-                  <h2>{HomeKitchen.brand}</h2>
-                  <p>{HomeKitchen.description}</p>
+                  <h2>{Accessoriespro.brand}</h2>
+                  <p>{Accessoriespro.description}</p>
                   <p>
                     
-                    <b> ₹{HomeKitchen.price}</b> <s>₹ {HomeKitchen.discount}</s>
+                    <b> ₹{Accessoriespro.price}</b> <s>₹ {Accessoriespro.discount}</s>
                   </p>
                   <span>
-                    {HomeKitchen.star} <i class="fa-solid fa-star fa-xs"></i>
+                    {Accessoriespro.star} <i class="fa-solid fa-star fa-xs"></i>
                   </span>
-                  <b> {HomeKitchen.instock} </b>
-                  <p> {HomeKitchen.other} </p>
+                  <b> {Accessoriespro.instock} </b>
+                  <p> {Accessoriespro.other} </p>
 
                 </div>
                 ))}
@@ -227,4 +227,4 @@ const HomeKit = () => {
   )
 }
 
-export default HomeKit
+export default Accessories

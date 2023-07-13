@@ -14,6 +14,10 @@ import Cart from './components/cart/Cart';
 import WomensMultiplepro from './components/Multi-product/WomensMultiplepro';
 import Kidswear from './components/Multi-product/Kidswear';
 import HomeKit from './components/Multi-product/HomeKit';
+import Beauty from './components/Multi-product/Beauty';
+import Gadget from './components/Multi-product/Gadget';
+import Jwellery from './components/Multi-product/Jwellery';
+import Accessories from './components/Multi-product/Accessories';
 
 
 
@@ -35,6 +39,12 @@ function App() {
         <Route exact path='/Cart' element={<Cart/>}/>
         <Route exact path='/Kidswear' element={<Kidswear/>}/>
         <Route exact path='/HomeKit' element={<HomeKit/>}/>
+        <Route exact path='/Beauty' element={<Beauty/>}/>
+        <Route exact path='/Gadget' element={<Gadget/>}/>
+        <Route exact path='/Jwellery' element={<Jwellery/>}/>
+        <Route exact path='/Accessories' element={<Accessories/>}/>
+  
+  
   
 
         

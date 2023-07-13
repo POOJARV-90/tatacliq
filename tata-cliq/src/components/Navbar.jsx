@@ -40,9 +40,66 @@ const Navbar = () => {
         setOpen(false)
         setIsbackgroundColor(false)
     }
-    // const xyz = () => {
-    //     setIsbackgroundColor('white')
-    // }
+    const gotomens = useNavigate();
+   
+    function gotoMenspro() {
+        gotomens("/MensMultiplepro");
+        
+
+    }
+    const gotoWomens = useNavigate();
+    function gotoWomenMenspro() {
+       
+        gotoWomens("/WomensMultiplepro");
+
+    }
+
+    const gotoKids = useNavigate();
+    function gotoKidspro() {
+       
+        gotoKids("/Kidswear");
+
+    }
+
+    const gotoHome = useNavigate();
+    function gotoHomepro() {
+       
+        gotoHome("/HomeKit");
+
+    }
+
+    const gotoBeauty = useNavigate();
+    function gotoBeautypro() {
+       
+        gotoBeauty("/Beauty");
+
+    }
+
+    const gotoGadget = useNavigate();
+    function gotoGadgetpro() {
+       
+        gotoGadget("/Gadget");
+
+    }
+
+    const gotojwellery = useNavigate();
+    function gotojwellerypro() {
+       
+        gotojwellery("/Jwellery");
+
+    }
+
+    const gotoAccessories = useNavigate();
+    function gotoAccessoriespro() {
+       
+        gotoAccessories("/Accessories");
+
+    }
+
+
+
+
+
     return (
         <>
         <div id='navbar'>
@@ -101,12 +158,31 @@ const Navbar = () => {
 
                <div id='categories-down' onMouseEnter={letOpen } onMouseLeave={letClose} >
                
-               <p>zjcjdhjkhdjkdhkjdhjdh</p>
-               xbmXBmXBmXB
+                 <div id='rowone'>
+                    <p onClick={gotoWomenMenspro}>Women's Fashion
+
+
+
+
+
+
+</p>
+                    <p onClick={gotoMenspro}>Men's Fashion</p>
+                    <p onClick={gotoKidspro}>Kid's Fashion</p>
+                    <p onClick={gotoHomepro}>Home & Kitchen</p>
+                    <p onClick={gotoBeautypro}>Beauty</p>
+                    <p onClick={gotoGadgetpro}>Gadgets</p>
+                    <p onClick={gotojwellerypro}>Jewellery</p>
+                    <p onClick={gotoAccessoriespro}>Accessories</p>
+
+
+                 </div>
+
+                
 
 
                </div>
-}
+} 
             </div>
            
 
