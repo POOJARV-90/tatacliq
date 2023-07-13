@@ -289,5 +289,20 @@
 
     }   
 
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000018112252_437Wx649H_202306252121591.jpeg",
+        "brand": " HOP Baby",
+        "description": "HOP Baby by Westside Blue Whale Themed Changing Bag",
+        "price": 799,
+        "discount" : "",
+        "star": 5,
+        "instock": "(1)",
+        "other": "Limited stock!",
+        "New" : "on offer" 
+       
+
+    }   
+
 
 ]
