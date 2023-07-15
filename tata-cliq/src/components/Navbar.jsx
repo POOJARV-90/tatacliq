@@ -95,6 +95,14 @@ const Navbar = () => {
         gotoAccessories("/Accessories");
 
     }
+    // ..............wishlist......................
+
+    const gotoWishlit = useNavigate();
+    function gotoWishlitpro() {
+       
+        gotoWishlit("/Wishlist");
+
+    }
 
 
 
@@ -123,7 +131,7 @@ const Navbar = () => {
                      <div id='profile-down' onMouseLeave={handleMouseLeave}>
                        <div onClick={gotoprofile}  ><img src="https://www.tatacliq.com/src/general/components/img/profile.png" alt=""  /> <p>My Account</p></div>
                        <div><img src="https://www.tatacliq.com/src/general/components/img/order-history.svg" alt="" /> <p>Order History</p></div>
-                       <div><img src="https://www.tatacliq.com/src/general/components/img/WL5.svg" alt="" /> <p>My Wishlist</p></div>
+                       <div onClick={gotoWishlitpro}><img src="https://www.tatacliq.com/src/general/components/img/WL5.svg" alt="" /> <p>My Wishlist</p></div>
                        <div><img src="https://www.tatacliq.com/src/account/components/img/alert.svg" alt="" /> <p>Alert & Coupon</p></div>
                        <div><img src="https://www.tatacliq.com/src/account/components/img/giftCards.svg" alt="" /> <p>Gift Card</p></div>
                        <div><img src="https://www.tatacliq.com/src/account/components/img/cliqCash.svg" alt="" /> <p>CLiQ Cash</p></div>
@@ -146,9 +154,9 @@ const Navbar = () => {
                     <div> <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="search" placeholder='Search for Brands' /></div>
                    </div>
-                   <div id='down-bar-logo'onClick={gotoCart}>
-                   <i class="fa-regular fa-heart fa-lg"></i>
-                   <  i class="fa-solid fa-bag-shopping fa-lg"></i>
+                   <div id='down-bar-logo'>
+                   <i class="fa-regular fa-heart fa-lg"onClick={gotoWishlitpro} ></i>
+                   <  i class="fa-solid fa-bag-shopping fa-lg" onClick={gotoCart}></i>
                    </div>
  
 

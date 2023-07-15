@@ -1,0 +1,145 @@
+[
+    {
+        "image" : "https://img.tatacliq.com/images/i9/437Wx649H/MP000000016062393_437Wx649H_202301140417001.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": "LOV",
+        "description": "LOV by Westside White Schiffli Blouse",
+        "price": 299,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "limited stock",
+        "New" : "on offer" 
+        
+
+    }   
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017466404_437Wx649H_202305070231241.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "limited stock",
+        "New" : "on offer" 
+        
+
+    } 
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016798924_437Wx649H_202303092244211.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+        
+    }  
+    ,
+   
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017561245_437Wx649H_202305160152341.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": "   Joker & WItch",
+        "description": " Joker & Witch Vacation Edit Simple Bead Flexible fit Bracelet",
+        "price":419,
+        "discount" : 899,
+        "star": 4.7,
+        "instock": "Price dropped by ₹480",
+        "other": " Limited stock!",
+        "New" : "on offer" 
+       
+    }   
+
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i2/437Wx649H/MP000000002435145_437Wx649H_20180221014803.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": "   Ahilya Jewels",
+        "description": " Ahilya Jewels Round 925 Silver Earrings",
+        "price":2096,
+        "discount" : "",
+        "star": 4.7,
+        "instock": "Price dropped by ₹480",
+        "other": " Limited stock!",
+        "New" : "on offer" 
+    
+       
+    }  
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000017340222_437Wx649H_202304222230221.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+
+    }
+    ,
+
+    {
+        "image" : "https://img.tatacliq.com/images/i7/437Wx649H/MP000000009696980_437Wx649H_202106010207031.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "on offer" 
+    },
+
+    {
+        "image" : "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016798924_437Wx649H_202303092244211.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": " Bombay Paisley",
+        "description": "Bombay Paisley by Westside Green Dress",
+        "price": 1499,
+        "discount" : 499,
+        "star": 3.8,
+        "instock": "(6)",
+        "other": "limited stock",
+        "New" : "New" 
+    }
+    ,
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000018117126_437Wx649H_202306271129351.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": " Cottinfab",
+        "description": "Cottinfab Beige & Black Animal Print Wrap Dress",
+        "price": 2199,
+        "discount" : 770,
+        "star": 3.7,
+        "instock": "(161)",
+        "other": "",
+        "New" : "on offer" 
+    },
+    {
+        "image" : "https://img.tatacliq.com/images/i11/437Wx649H/MP000000017472921_437Wx649H_202305080131471.jpeg",
+        "image2" :"https://www.tatacliq.com/src/wishlist/components/img/Delete.svg",
+        "brand": " Gia",
+        "description": "Gia Curves by Westside Black Smocked Dress",
+        "price": 2199,
+        "discount" : 1699,
+        "star": 4.7,
+        "instock": "(14)",
+        "other": "",
+        "New" : "New" 
+    }
+    
+]
