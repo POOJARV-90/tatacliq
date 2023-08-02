@@ -1,36 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-// import '../Multi-product/Allpoduct.css'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../Multi-product/Allpoduct.css";
+import Navbar from "../Navbar";
 
 const Allproduct = () => {
+  const [isProductsExist, setIsProductsExist] = useState(false);
+  const [products, setProducts] = useState([]);
+  const router = useNavigate();
 
-    const [isProductsExist, setIsProductsExist] = useState(false);
-    const [products, setProducts] = useState([]);
-    const router = useNavigate();
-
-    useEffect(() => {
-        const productsFromDb = JSON.parse(localStorage.getItem("Products"))
-        if (productsFromDb?.length) {
-            setIsProductsExist(true);
-            setProducts(productsFromDb)
-        } else {
-            setIsProductsExist(false)
-            setProducts([])
-        }
-    }, [])
-
-    const tosingleproduct = (id) =>{
-        console.log(id,"id")
-          router(`/Singlepoduct/${id}`)
+  useEffect(() => {
+    const productsFromDb = JSON.parse(localStorage.getItem("Products"));
+    if (productsFromDb?.length) {
+      setIsProductsExist(true);
+      setProducts(productsFromDb);
+    } else {
+      setIsProductsExist(false);
+      setProducts([]);
     }
+  }, []);
+
+  const tosingleproduct = (id) => {
+    console.log(id, "id");
+    router(`/Singlepoduct/${id}`);
+  };
 
   return (
-    <div id='pro-body'>
-    <div id="parent">
+    <>
+    <Navbar/>
+    <div id="pro-body">
+      <div id="parent">
         <div id="head1">
-          <h1>Womens bags
-             </h1>
-          <p>34435 Products</p>
+          <h1>All products</h1>
+          
         </div>
 
         <div id="parent2">
@@ -205,34 +206,53 @@ const Allproduct = () => {
             </div>
             <div id="right">
               {/* onClick={toGo} */}
-              <div>
 
               {!isProductsExist ? <div>No products</div>
                 :
-                <div id='products'  >
-                    {products && products.map((pro) => (
-                        <div onClick={() => tosingleproduct(pro.id)} id='single-pro' key={pro.name} >
-                            <div>
-                            <img id='img' src={pro.image} />
-                            </div>
-                           
-                            <p> {pro.name}</p>
-                            <p>Category :{pro.category}</p>
-                            <p>Price : ₹ {pro.price} </p>
-                        </div>
-                    ))}
+             <>
+              {products && products.map((pro) => (
+                  <div onClick={() => tosingleproduct(pro.id)}  key={pro.name}  >
+                 
+                
+
+                  <div>
+                  <img id='img'  src={pro.image} />
+                    <img
+                      src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
+                      alt=""
+                    />
+                    <img
+                      src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
+                      alt=""
+                    />
+                   
+                  </div>
+  
+                  <h2>{pro.category}</h2>
+                  <p> {pro.name}</p>
+                  <p>
+                    
+                    <b>{pro.price} ₹</b> <s></s>
+                  </p>
+                  <span>
+                    4.3 <i class="fa-solid fa-star fa-xs"></i>
+                  </span>
+                  <b>  </b>
+                  <p> </p>
+
                 </div>
+                ))}
 
-                    }   
-
-</div>
+</>
+}
               
             </div>
           </div>
         </div>
       </div>
-</div>
-  )
-}
+    </div>
+    </>
+  );
+};
 
-export default Allproduct
+export default Allproduct;

@@ -1,12 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Cart.css";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const Checkoutdata = useNavigate();
-  function gotoCheckout() {
-    Checkoutdata("/Cartshipform");
+  // const Checkoutdata = useNavigate();
+  // function gotoCheckout() {
+  //   Checkoutdata("/Cartshipform");
+  // }
+
+  const [finalprice, setFinalPrice] = useState(0);
+  const [userCart, setUserCart] = useState([]);
+  const router = useNavigate();
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("CurrentUser"));
+    if (user?.email) {
+      const allUsers = JSON.parse(localStorage.getItem("Users"));
+      for (var i = 0; i < allUsers.length; i++) {
+        if (
+          allUsers[i].email == user.email &&
+          allUsers[i].password == user.password
+        ) {
+          setUserCart(allUsers[i].cart);
+          break;
+        }
+      }
+    } else {
+     alert("Please login to watch all cart products.");
+      router("/login");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (userCart.length) {
+        var totalprice = 0;
+        for (var i = 0; i < userCart.length; i++) {
+            totalprice += parseInt( userCart[i].price) 
+        }
+        setFinalPrice(totalprice)
+    }
+}, [userCart])
+
+useEffect(() => {
+  const user = JSON.parse(localStorage.getItem("CurrentUser"))
+  if (user) {
+      if (user?.role == "Seller") {
+          alert("Access granted only to Buyer.")
+          router('/')
+      }
+  } else {
+      alert("You are not a Logged in user.")
+      router('/practicelogin')
   }
+}, [])
+
+
+function checkout(){
+  const user = JSON.parse(localStorage.getItem("CurrentUser"));
+  if (user?.email) {
+    const allUsers = JSON.parse(localStorage.getItem("Users"));
+    for (var i = 0; i < allUsers.length; i++) {
+      if (
+        allUsers[i].email == user.email &&
+        allUsers[i].password == user.password
+      ) {
+        allUsers[i].cart=[];
+        break;
+      }
+    }
+    localStorage.setItem("Users",JSON.stringify(allUsers))
+  }
+  setFinalPrice([]);  
+  setUserCart([]);
+ alert("Your products will be delivered soon. Thankyou for shopping!")
+}
   return (
     <>
       <div id="body-cart">
@@ -66,19 +132,21 @@ const Cart = () => {
                   </p>
                 </div>
 
+                {userCart &&
+                      userCart.map((pro) => (
                 <div id="cart-product-added">
                   <div id="cart-product-img">
                     <img
-                      src="https://img.tatacliq.com/images/i11/437Wx649H/MP000000017813539_437Wx649H_202306022341581.jpeg"
+                      src={pro.image}
                       alt=""
                     />
                   </div>
                   <div>
                     <div>
-                      <p>LOV by Westside Printed Fuchsia Dress</p>{" "}
+                      <p>{pro.name}</p>{" "}
                       <span>Delivery by 14th JulFREE</span>
                     </div>
-                    <span>₹2499.00</span>
+                    <span>₹{pro.price}.00</span>
                     <p id="abc">
                       <span>Color: Fuchsia</span> <span>Size: S</span>
                     </p>
@@ -100,7 +168,9 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <button id="button-0">Countine Shopping</button>
+                ))}
+
+                <button onClick={()=>router("/Allproduct")} id="button-0">Countine Shopping</button>
               </div>
               <div id="right-cart">
                 <div id="coupan">
@@ -116,7 +186,7 @@ const Cart = () => {
                   <div id="cart-total-amt">
                     <div>
                       <span>Bag Total</span>
-                      <span>₹2499.00</span>
+                      <span> {finalprice}</span>
                     </div>
 
                     <div>
@@ -128,17 +198,17 @@ const Cart = () => {
 
                     <div>
                       <span>Bag Subtotal</span>
-                      <span>₹2499.00</span>
+                      <span>₹ {finalprice - 200}</span>
                     </div>
                   </div>
                 </div>
 
                 <div id="whole-amt">
                   <div className="font-style">
-                    Total <br /> ₹ 2499
+                    Total <br /> ₹  {finalprice - 200}
                   </div>
 
-                  <button id="checkout" onClick={gotoCheckout}>
+                  <button onClick={checkout} id="checkout">
                     Checkout
                   </button>
                 </div>

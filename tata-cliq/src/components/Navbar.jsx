@@ -1,10 +1,24 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom';
 import {Authcontext} from "./Context/Authcontext"
 
 
 const Navbar = () => {
+  const {state , login , logout} = useContext(Authcontext)
+  const [userdatanav, setUserdatanav] = useState();
+  // console.log(userdatanav,"jsjhfjsdhf")
+
+  // const { state, logout } = useContext(Authcontext);
+  // const router = useNavigate();
+
+  useEffect(() => {
+    if (state?.user) {
+      setUserdatanav(state?.user);
+    } else {
+      setUserdatanav({});
+    }
+  }, [state]);
   // ----------------------register-------------------------------
   const [userdata, setUserdata] = useState({
     name: "",
@@ -47,7 +61,7 @@ const Navbar = () => {
 
   // --------------------------login---------------------------
 
-  const {state , login} = useContext(Authcontext)
+  
 
   const [userdatalogin , setUserdatalogin] = useState({ email: "", password: "" ,role :""});
   // const router = useNavigate();
@@ -158,14 +172,22 @@ const Navbar = () => {
                 <div id='up-bar' >
                     <span>Tata CLiQ Luxury</span>
                     <span>
-                        <span>CLiQ Cash</span>
+                        <span>CLiQ Cash </span>
                         <span>Gift Card</span>
                         <span>CLiQ Care</span>
                         <span>Track Orders</span>
-                        <span onClick={letopen} ><i class="fa-regular fa-circle-user fa-lg"></i></span>
-                        <span onMouseEnter={handleMouseEnter}><  i class="fa-solid fa-chevron-down fa-lg"></i></span>
+                        <span onClick={letopen} ><i class="fa-regular fa-circle-user fa-lg"></i></span> 
+                       
+                       {userdatanav?.email &&  <span onMouseEnter={handleMouseEnter}><  i class="fa-solid fa-chevron-down fa-lg"></i></span>  } 
+                       {!userdatanav?.email &&  <span onClick={letopen}> Login/SignUp <  i class="fa-solid fa-chevron-down fa-lg"></i></span>  } 
+                      
+                       {userdatanav.role == "Seller" && (
+                         <span onClick={() => router("/AddProduct")} ><i class="fa-solid fa-plus"> <small>ADD</small></i></span>
+            )}
+
 
                     </span>
+                    
                     { display &&
                      <div id='profile-down' onMouseLeave={handleMouseLeave}>
                        <div onClick={()=>router("/Profile")}  ><img src="https://www.tatacliq.com/src/general/components/img/profile.png" alt=""  /> <p>My Account</p></div>
@@ -174,9 +196,9 @@ const Navbar = () => {
                        <div><img src="https://www.tatacliq.com/src/account/components/img/alert.svg" alt="" /> <p>Alert & Coupon</p></div>
                        <div><img src="https://www.tatacliq.com/src/account/components/img/giftCards.svg" alt="" /> <p>Gift Card</p></div>
                        <div><img src="https://www.tatacliq.com/src/account/components/img/cliqCash.svg" alt="" /> <p>CLiQ Cash</p></div>
-                       <div><img src="https://www.tatacliq.com/src/account/components/img/settings.svg" alt="" /> <p>Logout</p></div>
+                       <div onClick={logout}><img src="https://www.tatacliq.com/src/account/components/img/settings.svg" alt="" /> <p>Logout</p></div>
                      </div>
-}
+                 }
 
                    
 

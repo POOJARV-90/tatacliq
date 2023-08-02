@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import { toast } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Authcontext } from "../Context/Authcontext";
+import Navbar from "../Navbar";
 
 const Singlepoduct = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -66,7 +67,7 @@ const Singlepoduct = () => {
         }
       }
       alert("Product successfully added to cart!");
-      router("/AllProducts");
+      router("/Allproduct");
     } else {
       alert("You can't add a product before logging in!");
     }
@@ -84,6 +85,7 @@ const Singlepoduct = () => {
   function handleChange(e) {
     setProductData({ ...productData, [e.target.name]: e.target.value });
   }
+
   function selectRole(e) {
     setProductData({ ...productData, ["category"]: e.target.value });
   }
@@ -109,154 +111,333 @@ const Singlepoduct = () => {
   }
 
   return (
-    <div>
-      {allowUpdate ? (
-        <div id="body">
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <form onSubmit={handleSubmit}>
-              
-                
-              
-                {/* <legend>Fill your Details</legend> */}
-                <label>Product Name:</label>
-                <br />
-                <input
-                  style={{
-                    width: "380px",
-                    marginTop: "10px",
-                    height: "30px",
-                    marginBottom: "10px",
-                    textAlign: "centre",
-                  }}
-                  type="text"
-                  name="name"
-                  value={productData.name}
-                  onChange={handleChange}
+    <>
+    <Navbar/>
+      <div id="single-pro-body">
+        <div id="Container">
+          <div id="left-container">
+            <div>
+              <div>
+                <img src={single.image}/>
+              </div>
+              <div>
+                <img
+                 src={single.image}
+                  alt=""
                 />
-                <br />
+              </div>
+            </div>
+            <div>
+              <div>
+                <img
+                 src={single.image}
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  src={single.image}
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                 src={single.image}
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div id="right-container">
+            <div id="right-1">
+              <h3>{single.name}</h3>
+              <p></p>  
+              <b>₹{single.price}</b>
+              <span>
+                MRP:
+                <s>₹1799 </s>
+              </span>
+              <b>63% Off</b> <br />
+              <span>{single.category}</span>
+              <div>
+                <p>
+                  Use MENSEOSS coupon to get 10% off on cart value 1999/- and
+                  above.
+                </p>
+                <span>
+                  5 <i class="fa-solid fa-star fa-xs"></i>
+                </span>{" "}
+                <span>
+                  {" "}
+                  <b>1</b> Rating{" "}
+                </span>
+                <p>
+                  Earn{" "}
+                  <img
+                    width={"28px"}
+                    height={"18px"}
+                    src="https://www.tatacliq.com/src/account/components/Neupass_CircleBG.svg "
+                    alt=""
+                  />
+                  2.67 Neucoins on this order
+                </p>
+              </div>
+            </div>
 
-                <label>Product Price :</label>
-                <br />
-                <input
-                  style={{
-                    width: "380px",
-                    marginTop: "10px",
-                    height: "30px",
-                    marginBottom: "10px",
-                    textAlign: "centre",
-                  }}
-                  type="number"
-                  name="price"
-                  value={productData.price}
-                  onChange={handleChange}
+            <div id="right-2">
+              <p>
+                <span>Select size </span>
+                <span>Size Guide </span>
+              </p>
+
+              <div>
+                <span>XXS</span>
+                <span>XS</span>
+                <span>S</span>
+                <span>M</span>
+                <span>L</span>
+                <span>XL</span>
+                <span>XXL</span>
+                <span>XL</span>
+              </div>
+              <p>
+                Size out of stock?
+                <b>View Similar</b> <br /> <br />
+                Model is 6'0"/185 cms and is wearing size M <br />
+                Polyester Recycled, Machine Wash
+              </p>
+            </div>
+
+            <div id="right-3">
+              <h4>Available Offers</h4>
+
+              <div id="bank-info">
+                <img
+                  src="https://assets.tatacliq.com/medias/sys_master/images/27678831411230.png"
+                  alt=""
                 />
-                <br />
-                <label>Product Category :</label>
-                  
-                <select
-                  id="select"
-                  onChange={selectRole}
-                >
-                  <option value="Other">Other</option>
-                  <option value="Mens">Mens</option>
-                  <option value="Womens">Womens</option>
-                  <option value="Kids">Kids</option>
-                  <option value="Electronics">Electronics</option>
-                </select>
-                <br />
-                <label>Product Image :</label>
-                <br />
-                <input
-                  style={{
-                    width: "380px",
-                    marginTop: "10px",
-                    height: "30px",
-                    marginBottom: "10px",
-                    textAlign: "centre",
-                  }}
-                  type="text"
-                  name="image"
-                  value={productData.image}
-                  onChange={handleChange}
+                <p>
+                  10% Instant Discount on Kotak Bank Credit Cards only. <br />
+                  Min Purchase: ₹2500 | Max Discount: ₹1000
+                  <b>more</b>
+                </p>
+              </div>
+
+              <div id="bank-info">
+                <img
+                  src="https://assets.tatacliq.com/medias/sys_master/images/27678831280158.png"
+                  alt=""
                 />
-                <br />
-                <input
-                  id="button"
-                  type="submit"
-                  value="Update Product"
+                <p>
+                  10% Instant Discount on Kotak Bank Credit Cards only. <br />
+                  Min Purchase: ₹2500 | Max Discount: ₹1000
+                  <b>more</b>
+                </p>
+              </div>
+
+              <div id="bank-info">
+                <img
+                  src="https://assets.tatacliq.com/medias/sys_master/images/27678831280158.png"
+                  alt=""
                 />
-                <p style={{textAlign:"center", color:"white", fontWeight:"700"}} onClick={closeUpate}>X</p>
-                  
-            </form>
+                <p>
+                  10% Instant Discount on Kotak Bank Credit Cards only. <br />
+                  Min Purchase: ₹2500 | Max Discount: ₹1000
+                  <b>more</b>
+                </p>
+              </div>
+            </div>
+
+            <div id="right-4">
+              <h3>Ship To</h3>
+              <p className="the-input">
+                <input type="text" placeholder=" Mumbai, 40022" />
+                <span>Change Pincode</span>
+              </p>
+
+              <div id="tata-delivery">
+                <div>
+                  <img
+                    src="https://www.tatacliq.com/src/general/components/img/deliveryIcon.svg"
+                    alt=""
+                  />
+
+                  <p>
+                    {" "}
+                    Delivery by<b> 14th Jul</b>
+                  </p>
+                </div>
+
+                <div>
+                  <img
+                    src="https://www.tatacliq.com/src/general/components/img/returnReplacementIcon.svg"
+                    alt=""
+                  />
+
+                  <p>
+                    Cash on Delivery |<b> Available</b>
+                  </p>
+                </div>
+
+                <div>
+                  <img
+                    src="https://www.tatacliq.com/src/general/components/img/cod.svg"
+                    alt=""
+                  />
+
+                  <p>
+                    30 Days Easy Return | <b> Know More</b>
+                  </p>
+                </div>
+              </div>
+
+              <p className="the-input">
+                <span>Sold By 1 Puma Sports India Pvt Ltd</span>
+                <span>
+                  <i class="fa-solid fa-angle-right"></i>
+                </span>
+              </p>
+            </div>
+
+            <div id="right-5">
+              <div>
+                <span>
+                  <img
+                    src="https://www.tatacliq.com/src/pdp/components/img/new-share-icon.svg"
+                    alt=""
+                  />
+                  <img
+                    src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
+                    alt=""
+                  />
+                </span>
+              </div>
+
+              <div>
+                <button>Buy Now </button>
+                <button onClick={addCart} >Add to Bag</button>
+              </div>
+            </div>
           </div>
         </div>
-      ) : null}
+        <div id="recomend-img">
+         
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          width: "90%",
-          margin: "auto",
-          marginTop: "50px"
-          // border: "5px solid black",
-        }}
-      >
-        <div style={{ width: "40%", height: "350px" }}>
-          <img
-            style={{ width: "100%", height: "100%", marginTop: "40px" }}
-            src={single.image}
-            alt="Product"
-          />
-        </div>
 
-        <div style={{ width: "40%", height: "400px", padding: "15px", textAlign :"left" }}>
-          <h2 >Name: {single.name}</h2>
-          <h2>Price: {single.price}$</h2>
-          <p style={{ fontSize: "17px" }}>Category: {single.category}</p>
-
-          {userData?.role === "Seller" ? (
+          <div>
             <div>
-              <button
-                style={{
-                  height: "45px",
-                  width: "150px",
-                  border: "1px solid rgb(166, 166, 223)",
-                  backgroundColor: "#d6d6e2",
-                  color: "white",
-                  fontWeight: "700",
-                  fontSize: "17px",
-                  borderRadius: "50px",
-                  marginTop:"30px "
-                }}
-                onClick={uptoDate}
-              >
-                Update
-              </button>
+              <img
+                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
+                alt=""
+              />
             </div>
-          ) : (
+
+            <h2>Red cheif</h2>
+            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
+            <p>
+              {" "}
+              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
+            </p>
+            <span>
+              4.5 <i class="fa-solid fa-star fa-xs"></i>
+            </span>
+            <b>(10)</b>
+            <br />
+            <button>Buy Now</button>
+          </div>
+
+          <div>
             <div>
-              <button
-                style={{
-                  height: "45px",
-                  width: "150px",
-                  border: "1px solid rgb(166, 166, 223)",
-                  backgroundColor: "#d6d6e2",
-                  color: "white",
-                  fontWeight: "700",
-                  fontSize: "17px",
-                  borderRadius: "50px",
-                  marginTop:"30px "
-                }}
-                onClick={addCart}
-              >
-                Add to cart
-              </button>
+              <img
+                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
+                alt=""
+              />
             </div>
-          )}
+
+            <h2>Red cheif</h2>
+            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
+            <p>
+              {" "}
+              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
+            </p>
+            <span>
+              4.5 <i class="fa-solid fa-star fa-xs"></i>
+            </span>
+            <b>(10)</b>
+            <br />
+            <button>Buy Now</button>
+          </div>
+
+          <div>
+            <div>
+              <img
+                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
+                alt=""
+              />
+            </div>
+
+            <h2>Red cheif</h2>
+            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
+            <p>
+              {" "}
+              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
+            </p>
+            <span>
+              4.5 <i class="fa-solid fa-star fa-xs"></i>
+            </span>
+            <b>(10)</b>
+            <br />
+            <button>Buy Now</button>
+          </div>
+
+          <div>
+            <div>
+              <img
+                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
+                alt=""
+              />
+            </div>
+
+            <h2>Red cheif</h2>
+            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
+            <p>
+              {" "}
+              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
+            </p>
+            <span>
+              4.5 <i class="fa-solid fa-star fa-xs"></i>
+            </span>
+            <b>(10)</b>
+            <br />
+            <button>Buy Now</button>
+          </div>
+
+          <div>
+            <div>
+              <img
+                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
+                alt=""
+              />
+            </div>
+
+            <h2>Red cheif</h2>
+            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
+            <p>
+              {" "}
+              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
+            </p>
+            <span>
+              4.5 <i class="fa-solid fa-star fa-xs"></i>
+            </span>
+            <b>(10)</b>
+            <br />
+            <button>Buy Now</button>
+          </div>
+
+
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
