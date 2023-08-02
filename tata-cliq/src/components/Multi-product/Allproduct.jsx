@@ -1,16 +1,32 @@
-import React from 'react'
-import Accessoriesdata from "../Multi-product/Accessoriespro.json"
-import Navbar from '../Navbar'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+// import '../Multi-product/Allpoduct.css'
 
-console.log(Accessoriesdata,"data")
+const Allproduct = () => {
 
+    const [isProductsExist, setIsProductsExist] = useState(false);
+    const [products, setProducts] = useState([]);
+    const router = useNavigate();
 
+    useEffect(() => {
+        const productsFromDb = JSON.parse(localStorage.getItem("Products"))
+        if (productsFromDb?.length) {
+            setIsProductsExist(true);
+            setProducts(productsFromDb)
+        } else {
+            setIsProductsExist(false)
+            setProducts([])
+        }
+    }, [])
 
-const Accessories = () => {
+    const tosingleproduct = (id) =>{
+        console.log(id,"id")
+          router(`/Singlepoduct/${id}`)
+    }
+
   return (
-    <>
-      <Navbar />
-      <div id="parent">
+    <div id='pro-body'>
+    <div id="parent">
         <div id="head1">
           <h1>Womens bags
              </h1>
@@ -189,46 +205,34 @@ const Accessories = () => {
             </div>
             <div id="right">
               {/* onClick={toGo} */}
+              <div>
 
-              {Accessoriesdata.map((Accessoriespro) => (
-                  <div>
-                 
-                
-
-                  <div>
-                  <img id='img'  src={Accessoriespro.image} />
-                    <img
-                      src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
-                      alt=""
-                    />
-                    <img
-                      src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
-                      alt=""
-                    />
-                    {/* <div> {Accessoriespro.New}</div> */}
-                  </div>
-  
-                  <h2>{Accessoriespro.brand}</h2>
-                  <p>{Accessoriespro.description}</p>
-                  <p>
-                    
-                    <b> ₹{Accessoriespro.price}</b> <s>₹ {Accessoriespro.discount}</s>
-                  </p>
-                  <span>
-                    {Accessoriespro.star} <i class="fa-solid fa-star fa-xs"></i>
-                  </span>
-                  <b> {Accessoriespro.instock} </b>
-                  <p> {Accessoriespro.other} </p>
-
+              {!isProductsExist ? <div>No products</div>
+                :
+                <div id='products'  >
+                    {products && products.map((pro) => (
+                        <div onClick={() => tosingleproduct(pro.id)} id='single-pro' key={pro.name} >
+                            <div>
+                            <img id='img' src={pro.image} />
+                            </div>
+                           
+                            <p> {pro.name}</p>
+                            <p>Category :{pro.category}</p>
+                            <p>Price : ₹ {pro.price} </p>
+                        </div>
+                    ))}
                 </div>
-                ))}
+
+                    }   
+
+</div>
               
             </div>
           </div>
         </div>
       </div>
-    </>
+</div>
   )
 }
 
-export default Accessories
+export default Allproduct

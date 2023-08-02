@@ -20,6 +20,8 @@ import Jwellery from './components/Multi-product/Jwellery';
 import Accessories from './components/Multi-product/Accessories';
 import Wishlist from './components/Wishlist/Wishlist';
 import Cartshipform from './components/cart/Cartshipform';
+import Allproduct from './components/Multi-product/Allproduct';
+import Singlepoduct from './components/Multi-product/Singlepoduct';
 
 
 
@@ -47,6 +49,8 @@ function App() {
         <Route exact path='/Accessories' element={<Accessories/>}/>
         <Route exact path='/Wishlist' element={<Wishlist/>}/>
         <Route exact path='/Cartshipform' element={<Cartshipform/>}/>
+        <Route exact path='/Allproduct' element={<Allproduct/>}/>
+        <Route exact path='/Singlepoduct/:id' element={<Singlepoduct/>}/>
 
 
   
