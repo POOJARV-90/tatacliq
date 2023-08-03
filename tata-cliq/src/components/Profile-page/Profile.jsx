@@ -1,8 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import Navbar from "../Navbar";
+import { Authcontext } from "../Context/Authcontext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const {login} = useContext(Authcontext);
+  const[display,setDisplay] = useState(false) 
+  const router = useNavigate();
+  const [userData, setUserData] = useState({});
+  // console.log(userData, "abc");
+  const open = () => {
+    setDisplay(true)
+  }
+
+  const close = () => {
+    setDisplay(false)
+  }
+
+  
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
+    if (!currentUser) {
+      router("/");
+    }
+    const allUsers = JSON.parse(localStorage.getItem("Users"));
+    if (currentUser && allUsers) {
+      for (var i = 0; i < allUsers.length; i++) {
+        if (allUsers[i].email == currentUser.email && allUsers[i].password == currentUser.password) {
+          setUserData(allUsers[i]);
+        }
+      }
+    }
+  }, []);
+
+  function handleChange(event) {
+    setUserData({ ...userData, [event.target.name]: event.target.value })
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
+  const allUsers = JSON.parse(localStorage.getItem("Users"));
+  for (var i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].email == currentUser.email && allUsers[i].password == currentUser.password) {
+      allUsers[i].name = userData.name;
+      allUsers[i].password = userData.password;
+      currentUser.password = userData.password;
+      currentUser.name = userData.name;
+    }
+  }
+
+  login(currentUser);
+  localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
+  localStorage.setItem("Users", JSON.stringify(allUsers));
+  setUserData({})
+  alert("Profile updated.");
+}
   return (
     <>
     <Navbar/>
@@ -104,7 +159,7 @@ Profile</span>
         
         <h3>General Information </h3>
         <div>
-          <p><span>Basic Details</span> <span>Add</span> </p>
+          <p><span>Basic Details</span> <span onClick={open}>Add</span> </p>
 
           <div>
 
@@ -180,14 +235,33 @@ Profile</span>
 
          <div></div>
 
-         <p>poojarv@gmail.com</p>
+         <p>{userData.name} </p>
+         <p>{userData.email}</p>
 
 
 
         </div>
 
         </div>
+
+
+{display &&  <div id="edit"  >
+
+            <form onSubmit={handleSubmit}>
+            <h1>Profile</h1>
+                <label>Change Name</label><br />
+                <input type='text' value={userData.name} name="name" onChange={handleChange} /><br />
+                <label>Change Password</label><br />
+                <input type='text' value={userData.password} name="password" onChange={handleChange} /><br />
+                <input type='submit' />
+            </form>
+
+
+      </div> }
+       
       </div>
+
+      
     </>
   );
 };

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import "../productadd/Addporduct.css"
 
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import Navbar from '../Navbar';
 
 const AddProduct = () => {
 
@@ -49,10 +51,10 @@ const AddProduct = () => {
     }, [])
 
     return (
-        <div id='body'>
-           
+        <div id='add-body'>
+            <Navbar/>
             <form onSubmit={handleSubmit}>
-            <h4>ADD PRODUCT</h4>
+            <h4>ADD PRODUCT</h4> <br />
                 <label>Product Name :</label><br />
                 <input value={productData.name} type='text' onChange={handleChange} name="name" /><br />
                 <label>Product Price :</label><br />
@@ -71,7 +73,7 @@ const AddProduct = () => {
                     <option value="Home & Kitchen">Home & Kitchen</option>
                     <option value="Electronics">Electronics</option>
                 </select><br />
-                <input type='submit'  id='button' value='Add Product' /><br />
+                <input type='submit'  value='Add Product' />
 
                 
             </form>

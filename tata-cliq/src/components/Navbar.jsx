@@ -125,6 +125,7 @@ const Navbar = () => {
 
       const letopen = () => {
         setLoginopen(true)
+        setRegopen(false)
       }
 
       const letclose = () => {
@@ -132,6 +133,7 @@ const Navbar = () => {
       }
 
       const letopenREG = () => {
+        setLoginopen(false)
         setRegopen(true)
       }
 
@@ -181,7 +183,7 @@ const Navbar = () => {
                        {userdatanav?.email &&  <span onMouseEnter={handleMouseEnter}><  i class="fa-solid fa-chevron-down fa-lg"></i></span>  } 
                        {!userdatanav?.email &&  <span onClick={letopen}> Login/SignUp <  i class="fa-solid fa-chevron-down fa-lg"></i></span>  } 
                       
-                       {userdatanav.role == "Seller" && (
+                       {userdatanav?.role == "Seller" && (
                          <span onClick={() => router("/AddProduct")} ><i class="fa-solid fa-plus"> <small>ADD</small></i></span>
             )}
 
@@ -227,6 +229,7 @@ const Navbar = () => {
                <div id='categories-down' onMouseEnter={letOpen } onMouseLeave={letClose} >
                
                  <div id='rowone'>
+                 <p onClick={()=> router("/Allproduct")}>Explore</p>
                     <p onClick={()=> router("/WomensMultiplepro")}>Women's Fashion</p>
                     <p onClick={()=> router("/MensMultiplepro")}>Men's Fashion</p>
                     <p onClick={()=> router("/Kidswear")}>Kid's Fashion</p>

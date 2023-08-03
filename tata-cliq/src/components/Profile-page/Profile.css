@@ -167,4 +167,34 @@
     margin-top: 5%;
 }
 
+#edit{
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+   /* background-color: rgba(160, 28, 101, 0.25); */
+    border: 1px dashed #da1c5c;
+    height: 250px;
+    padding-top: 3%;
+    position: absolute;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#edit>form>input:last-child{
+     width: 60%; 
+    color: black;
+    border-radius: 30px;
+    /* display: flex; */
+   text-align: center;
+   padding-top: 2.5% ;
+   background-color:#da1c5c ;
+   
+   color: white;
+   border: none;
+   padding: 2%;
+   margin-top: 10%;
+   /* margin-left: 22%; */
+}
+
 

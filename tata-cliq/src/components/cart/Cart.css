@@ -121,7 +121,7 @@ margin-right:3.5%;
 }
 #cart-product-added{
   width: 100%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   background-color: white;
   /* height: 200px; */
   margin-top: 2%;
