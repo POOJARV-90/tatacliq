@@ -73,7 +73,6 @@ const Singlepoduct = () => {
     }
   }
 
-
   function uptoDate() {
     setAllowUpdate(true);
   }
@@ -105,53 +104,41 @@ const Singlepoduct = () => {
 
         localStorage.setItem("Products", JSON.stringify(allProduct));
         setProductData({ name: "", price: "", image: "", category: "Other" });
-       alert("Product Updated!");
+        alert("Product Updated!");
       }
     }
   }
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div id="single-pro-body">
         <div id="Container">
           <div id="left-container">
             <div>
               <div>
-                <img src={single.image}/>
+                <img src={single.image} />
               </div>
               <div>
-                <img
-                 src={single.image}
-                  alt=""
-                />
+                <img src={single.image} alt="" />
               </div>
             </div>
             <div>
               <div>
-                <img
-                 src={single.image}
-                  alt=""
-                />
+                <img src={single.image} alt="" />
               </div>
               <div>
-                <img
-                  src={single.image}
-                  alt=""
-                />
+                <img src={single.image} alt="" />
               </div>
               <div>
-                <img
-                 src={single.image}
-                  alt=""
-                />
+                <img src={single.image} alt="" />
               </div>
             </div>
           </div>
           <div id="right-container">
             <div id="right-1">
               <h3>{single.name}</h3>
-              <p></p>  
+              <p></p>
               <b>₹{single.price}</b>
               <span>
                 MRP:
@@ -315,15 +302,12 @@ const Singlepoduct = () => {
 
               <div>
                 <button>Buy Now </button>
-                <button onClick={addCart} >Add to Bag</button>
+                <button onClick={addCart}>Add to Bag</button>
               </div>
             </div>
           </div>
         </div>
         <div id="recomend-img">
-         
-
-
           <div>
             <div>
               <img
@@ -433,8 +417,6 @@ const Singlepoduct = () => {
             <br />
             <button>Buy Now</button>
           </div>
-
-
         </div>
       </div>
     </>

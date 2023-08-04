@@ -25,54 +25,53 @@ const Cart = () => {
         }
       }
     } else {
-     alert("Please login to watch all cart products.");
+      alert("Please login to watch all cart products.");
       router("/login");
     }
   }, []);
 
   useEffect(() => {
     if (userCart.length) {
-        var totalprice = 0;
-        for (var i = 0; i < userCart.length; i++) {
-            totalprice += parseInt( userCart[i].price) 
-        }
-        setFinalPrice(totalprice)
+      var totalprice = 0;
+      for (var i = 0; i < userCart.length; i++) {
+        totalprice += parseInt(userCart[i].price);
+      }
+      setFinalPrice(totalprice);
     }
-}, [userCart])
+  }, [userCart]);
 
-useEffect(() => {
-  const user = JSON.parse(localStorage.getItem("CurrentUser"))
-  if (user) {
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("CurrentUser"));
+    if (user) {
       if (user?.role == "Seller") {
-          alert("Access granted only to Buyer.")
-          router('/')
+        alert("Access granted only to Buyer.");
+        router("/");
       }
-  } else {
-      alert("You are not a Logged in user.")
-      router('/practicelogin')
-  }
-}, [])
-
-
-function checkout(){
-  const user = JSON.parse(localStorage.getItem("CurrentUser"));
-  if (user?.email) {
-    const allUsers = JSON.parse(localStorage.getItem("Users"));
-    for (var i = 0; i < allUsers.length; i++) {
-      if (
-        allUsers[i].email == user.email &&
-        allUsers[i].password == user.password
-      ) {
-        allUsers[i].cart=[];
-        break;
-      }
+    } else {
+      alert("You are not a Logged in user.");
+      router("/practicelogin");
     }
-    localStorage.setItem("Users",JSON.stringify(allUsers))
+  }, []);
+
+  function checkout() {
+    const user = JSON.parse(localStorage.getItem("CurrentUser"));
+    if (user?.email) {
+      const allUsers = JSON.parse(localStorage.getItem("Users"));
+      for (var i = 0; i < allUsers.length; i++) {
+        if (
+          allUsers[i].email == user.email &&
+          allUsers[i].password == user.password
+        ) {
+          allUsers[i].cart = [];
+          break;
+        }
+      }
+      localStorage.setItem("Users", JSON.stringify(allUsers));
+    }
+    setFinalPrice([]);
+    setUserCart([]);
+    alert("Your products will be delivered soon. Thankyou for shopping!");
   }
-  setFinalPrice([]);  
-  setUserCart([]);
- alert("Your products will be delivered soon. Thankyou for shopping!")
-}
   return (
     <>
       <div id="body-cart">
@@ -133,44 +132,42 @@ function checkout(){
                 </div>
 
                 {userCart &&
-                      userCart.map((pro) => (
-                <div id="cart-product-added">
-                  <div id="cart-product-img">
-                    <img
-                      src={pro.image}
-                      alt=""
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <p>{pro.name}</p>{" "}
-                      <span>Delivery by 14th JulFREE</span>
+                  userCart.map((pro) => (
+                    <div id="cart-product-added">
+                      <div id="cart-product-img">
+                        <img src={pro.image} alt="" />
+                      </div>
+                      <div>
+                        <div>
+                          <p>{pro.name}</p>{" "}
+                          <span>Delivery by 14th JulFREE</span>
+                        </div>
+                        <span>₹{pro.price}.00</span>
+                        <p id="abc">
+                          <span>Color: Fuchsia</span> <span>Size: S</span>
+                        </p>
+
+                        <div id="sum-up">
+                          <span>Quantity:</span>
+                          <select name="" id="">
+                            <option value="">1</option>
+                            <option value="">1</option>
+                            <option value="">1</option>
+                          </select>
+
+                          <span id="total">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Save to wishlist</span>
+                          </span>
+                          <span>Remove</span>
+                        </div>
+                      </div>
                     </div>
-                    <span>₹{pro.price}.00</span>
-                    <p id="abc">
-                      <span>Color: Fuchsia</span> <span>Size: S</span>
-                    </p>
+                  ))}
 
-                    <div id="sum-up">
-                      <span>Quantity:</span>
-                      <select name="" id="">
-                        <option value="">1</option>
-                        <option value="">1</option>
-                        <option value="">1</option>
-                      </select>
-
-                      <span id="total">
-                        <i class="fa-regular fa-heart"></i>
-                        <span>Save to wishlist</span>
-                      </span>
-                      <span>Remove</span>
-                    </div>
-                  </div>
-                </div>
-
-                ))}
-
-                <button onClick={()=>router("/Allproduct")} id="button-0">Countine Shopping</button>
+                <button onClick={() => router("/Allproduct")} id="button-0">
+                  Countine Shopping
+                </button>
               </div>
               <div id="right-cart">
                 <div id="coupan">
@@ -205,7 +202,7 @@ function checkout(){
 
                 <div id="whole-amt">
                   <div className="font-style">
-                    Total <br /> ₹  {finalprice - 200}
+                    Total <br /> ₹ {finalprice - 200}
                   </div>
 
                   <button onClick={checkout} id="checkout">
