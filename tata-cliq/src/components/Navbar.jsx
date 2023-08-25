@@ -2,104 +2,42 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import { Authcontext } from "./Context/Authcontext";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import Register from "./Register";
 
 const Navbar = () => {
-  const { state, login, logout } = useContext(Authcontext);
-  const [userdatanav, setUserdatanav] = useState();
-  // console.log(userdatanav,"jsjhfjsdhf")
+  const { state, dispatch } = useContext(Authcontext);
+  
+  const [userdata, setUserdata] = useState({
+    email: "",
+    password: ""
+    
+  });
+  function logout() {    ///tobechange
+    localStorage.removeItem("Token")
 
-  // const { state, logout } = useContext(Authcontext);
-  // const router = useNavigate();
-
+    setUserdata({})
+    // setDisplay(false)
+    router('/')
+}
   useEffect(() => {
     if (state?.user) {
-      setUserdatanav(state?.user);
+      setUserdata(state?.user);
     } else {
-      setUserdatanav({});
+      setUserdata({});
     }
   }, [state]);
-  // ----------------------register-------------------------------
-  const [userdata, setUserdata] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "Buyer",
-  });
-  const handlechange = (event) => {
-    setUserdata({ ...userdata, [event.target.name]: event.target.value });
-  };
+  
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (userdata.name && userdata.email && userdata.password) {
-      const array = JSON.parse(localStorage.getItem("Users")) || [];
-
-      const userobject = {
-        name: userdata.name,
-        email: userdata.email,
-        password: userdata.password,
-        role: userdata.role,
-        cart: [],
-      };
-      array.push(userobject);
-      localStorage.setItem("Users", JSON.stringify(array));
-
-      setUserdata({ name: "", email: "", password: "", role: "Buyer" });
-      router("/");
-      alert("Registerd succesfully");
-    } else {
-      alert("please submit the require details");
-    }
-  };
-
-  function selectrole(event) {
-    // console.log(event.target.value ,"role")
-    setUserdata({ ...userdata, ["role"]: event.target.value });
-  }
-
-  // --------------------------login---------------------------
-
-  const [userdatalogin, setUserdatalogin] = useState({
-    email: "",
-    password: "",
-    role: "",
-  });
+  
   // const router = useNavigate();
 
   const hangleChangeLogin = (event) => {
-    setUserdatalogin({
-      ...userdatalogin,
-      [event.target.name]: event.target.value,
-    });
+    setUserdata({...userdata,[event.target.name]: event.target.value});
   };
 
-  const handleSubmitLogin = (event) => {
-    event.preventDefault();
-    if (userdatalogin.email && userdatalogin.password) {
-      const users = JSON.parse(localStorage.getItem("Users")); //access to LS
-
-      var flag = false;
-      for (var i = 0; i < users.length; i++) {
-        if (
-          users[i].email == userdatalogin.email &&
-          users[i].password == userdatalogin.password
-        ) {
-          flag = true;
-          localStorage.setItem("CurrentUser", JSON.stringify(users[i]));
-          login(users[i]);
-          alert("login succesfull");
-          setUserdatalogin({ email: "", password: "", role: "" });
-          router("/");
-          break;
-        }
-      }
-      if (flag == false) {
-        alert("Please check credentials."); //RETURN
-      }
-    } else {
-      alert("Please submit all details");
-    }
-  };
+ 
 
   // ---------------------------------------------------------------
   const [display, setDisplay] = useState(false); //category
@@ -148,6 +86,36 @@ const Navbar = () => {
     setIsbackgroundColor(false);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if ( userdata.email && userdata.password) {
+      
+            const response = await axios.post("http://localhost:8000/login", { userdata });
+            if (response.data.success) {
+            //   console.log(response.data,"data");
+            //    const token  = response.data.token;
+            //    const user = response.data.user;
+            // // console.log(user,"userdata");
+            //   await login(token , user)
+
+            dispatch({
+              type: 'LOGIN',
+              payload: response.data.user
+          })
+          localStorage.setItem("token", JSON.stringify(response.data.token))
+                setUserdata({ email: "", password: "" })
+                router('/')
+                toast.success(response.data.message)
+            } else {
+                toast.error(response.data.message)
+            }
+
+       
+    } else {
+        toast.error("All fields are mandtory.")
+    }
+}
+
   return (
     <>
       <div id="navbar">
@@ -171,19 +139,20 @@ const Navbar = () => {
                 <i class="fa-regular fa-circle-user fa-lg"></i>
               </span>
 
-              {userdatanav?.email && (
+              {userdata?.email && (
                 <span onMouseEnter={handleMouseEnter}>
+                  {userdata.name}
                   <i class="fa-solid fa-chevron-down fa-lg"></i>
                 </span>
               )}
-              {!userdatanav?.email && (
+              {!userdata?.email && (
                 <span onClick={letopen}>
                   {" "}
                   Login/SignUp <i class="fa-solid fa-chevron-down fa-lg"></i>
                 </span>
               )}
 
-              {userdatanav?.role == "Seller" && (
+              {userdata?.role == "Seller" && (
                 <span onClick={() => router("/AddProduct")}>
                   <i class="fa-solid fa-plus">
                     {" "}
@@ -237,6 +206,7 @@ const Navbar = () => {
                   />{" "}
                   <p>CLiQ Cash</p>
                 </div>
+                {/* onClick={logout} */}
                 <div onClick={logout}>
                   <img
                     src="https://www.tatacliq.com/src/account/components/img/settings.svg"
@@ -314,13 +284,13 @@ const Navbar = () => {
                 <h1>Welcome to Tata </h1>
                 <h1>CLiQ</h1>
 
-                <form onSubmit={handleSubmitLogin}>
+                <form onSubmit={handleSubmit}>
                   <input
                     placeholder="E-mail Address"
                     type="email"
                     name="email"
                     onChange={hangleChangeLogin}
-                    value={userdatalogin.email}
+                    value={userdata.email}
                   />
 
                   <br />
@@ -330,7 +300,7 @@ const Navbar = () => {
                     type="password"
                     name="password"
                     onChange={hangleChangeLogin}
-                    value={userdatalogin.password}
+                    value={userdata.password}
                   />
 
                   <p>
@@ -352,53 +322,7 @@ const Navbar = () => {
         {/* letcloseREG  */}
 
         {regopen && (
-          <div id="register-body">
-            <div id="register">
-              <span onClick={letcloseREG}>
-                <i class="fa-solid fa-x"></i>
-              </span>
-              <h1>Welcome to Tata </h1>
-              <h1>CLiQ</h1>
-
-              <form onSubmit={handleSubmit}>
-                <input
-                  placeholder="Name"
-                  value={userdata.name}
-                  type="text"
-                  onChange={handlechange}
-                  name="name"
-                />
-                <input
-                  placeholder="E-mail Address"
-                  value={userdata.email}
-                  type="email"
-                  onChange={handlechange}
-                  name="email"
-                />{" "}
-                <br />
-                <label htmlFor="">Select Role : </label>
-                <select id="select" onChange={selectrole}>
-                  <option value="Buyer">Buyer</option>
-                  <option value="Seller">Seller</option>
-                </select>
-                <input
-                  placeholder="Password"
-                  value={userdata.password}
-                  type="password"
-                  onChange={handlechange}
-                  name="password"
-                />
-                <p>
-                  By continuing, you agree to our <b>Terms of Use</b> and{" "}
-                  <b>Privacy Policy</b>{" "}
-                </p>
-                <p>
-                  Alraedy a member <b>Click here</b>
-                </p>
-                <input id="button-login" type="submit" value="Register" />
-              </form>
-            </div>
-          </div>
+          <Register letcloseREG={letcloseREG} letopenREG={letopenREG} />
         )}
       </div>
     </>

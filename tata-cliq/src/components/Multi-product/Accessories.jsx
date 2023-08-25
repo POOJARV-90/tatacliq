@@ -2,7 +2,7 @@ import React from 'react'
 import Accessoriesdata from "../Multi-product/Accessoriespro.json"
 import Navbar from '../Navbar'
 
-console.log(Accessoriesdata,"data")
+// console.log(Accessoriesdata,"data")
 
 
 

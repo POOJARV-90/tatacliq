@@ -23,6 +23,7 @@ import Cartshipform from './components/cart/Cartshipform';
 import Allproduct from './components/Multi-product/Allproduct';
 import Singlepoduct from './components/Multi-product/Singlepoduct';
 import AddProduct from './components/productadd/AddProduct';
+import Register from './components/Register';
 
 
 
@@ -53,6 +54,7 @@ function App() {
         <Route exact path='/AddProduct' element={<AddProduct/>}/>
         <Route exact path='/Allproduct' element={<Allproduct/>}/>
         <Route exact path='/Singlepoduct/:id' element={<Singlepoduct/>}/>
+        <Route exact path='register' element={<Register/>}/>
 
 
   
