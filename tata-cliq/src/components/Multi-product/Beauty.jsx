@@ -1,6 +1,7 @@
 import React from 'react'
 import Beautyprodata from "../Multi-product/Beautypro.json"
-import Navbar from '../Navbar'
+import Navbar from '../common/Navbar'
+
 
 const Beauty = () => {
   return (

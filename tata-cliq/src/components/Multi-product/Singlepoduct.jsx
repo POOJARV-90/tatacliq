@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 // import { toast } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Authcontext } from "../Context/Authcontext";
-import Navbar from "../Navbar";
+import Navbar from "../common/Navbar";
+
 
 const Singlepoduct = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);

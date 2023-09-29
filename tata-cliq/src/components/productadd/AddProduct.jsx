@@ -3,7 +3,8 @@ import "../productadd/Addporduct.css";
 
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import Navbar from "../Navbar";
+import Navbar from "../common/Navbar";
+
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({

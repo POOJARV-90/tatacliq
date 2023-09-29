@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
-import Navbar from "../Navbar";
+
 import { Authcontext } from "../Context/Authcontext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../common/Navbar";
 
 const Profile = () => {
   const { login } = useContext(Authcontext);
@@ -19,23 +20,23 @@ const Profile = () => {
     setDisplay(false);
   };
 
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
-    if (!currentUser) {
-      router("/");
-    }
-    const allUsers = JSON.parse(localStorage.getItem("Users"));
-    if (currentUser && allUsers) {
-      for (var i = 0; i < allUsers.length; i++) {
-        if (
-          allUsers[i].email == currentUser.email &&
-          allUsers[i].password == currentUser.password
-        ) {
-          setUserData(allUsers[i]);
-        }
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
+  //   if (!currentUser) {
+  //     router("/");
+  //   }
+  //   const allUsers = JSON.parse(localStorage.getItem("Users"));
+  //   if (currentUser && allUsers) {
+  //     for (var i = 0; i < allUsers.length; i++) {
+  //       if (
+  //         allUsers[i].email == currentUser.email &&
+  //         allUsers[i].password == currentUser.password
+  //       ) {
+  //         setUserData(allUsers[i]);
+  //       }
+  //     }
+  //   }
+  // }, []);
 
   function handleChange(event) {
     setUserData({ ...userData, [event.target.name]: event.target.value });

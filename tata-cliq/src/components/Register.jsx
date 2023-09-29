@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-const Register = (props) => {
+const Register = ({ letcloseREG, onClose }) => {
    
     const router = useNavigate();
     const [userdata, setUserdata] = useState({
@@ -47,7 +47,7 @@ const Register = (props) => {
   return (
     <div id="register-body">
             <div id="register">
-              <span>
+              <span onClick={onClose}>
                 <i class="fa-solid fa-x"></i>
               </span>
               <h1>Welcome to Tata </h1>

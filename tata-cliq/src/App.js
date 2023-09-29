@@ -3,7 +3,7 @@ import './App.css';
 
 
 import{Routes,Route} from 'react-router-dom';
-import Navbar from './components/Navbar';
+
 import Footer from './components/Footer';
 import Home from './components/home/Home';
 import Menswear from './components/menswear/Menswear';
@@ -24,6 +24,7 @@ import Allproduct from './components/Multi-product/Allproduct';
 import Singlepoduct from './components/Multi-product/Singlepoduct';
 import AddProduct from './components/productadd/AddProduct';
 import Register from './components/Register';
+import Navbar from './components/common/Navbar';
 
 
 

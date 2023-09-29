@@ -1,7 +1,7 @@
 import React from "react";
-import "../Wishlist/Wishlistpage.css";
-import Navbar from "../Navbar";
+import "../Wishlist/Wishlistpage.css"
 import wishlistdata from "../Wishlist/Wishlistpro.json";
+import Navbar from "../common/Navbar";
 
 const Wishlist = () => {
   return (

@@ -1,51 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./Navbar.css";
+import "../Style/Navbar.css";
 import { useNavigate } from "react-router-dom";
-import { Authcontext } from "./Context/Authcontext";
+import { Authcontext } from "../Context/Authcontext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import Register from "./Register";
+import Register from "../Register";
 
 const Navbar = () => {
   const { state, dispatch } = useContext(Authcontext);
-  
-  const [userdata, setUserdata] = useState({
-    email: "",
-    password: ""
-    
-  });
-  function logout() {    ///tobechange
-    localStorage.removeItem("Token")
-
-    setUserdata({})
-    // setDisplay(false)
-    router('/')
-}
-  useEffect(() => {
-    if (state?.user) {
-      setUserdata(state?.user);
-    } else {
-      setUserdata({});
-    }
-  }, [state]);
-  
-
-  
-  // const router = useNavigate();
-
-  const hangleChangeLogin = (event) => {
-    setUserdata({...userdata,[event.target.name]: event.target.value});
-  };
-
- 
-
   // ---------------------------------------------------------------
   const [display, setDisplay] = useState(false); //category
   const [loginopen, setLoginopen] = useState(false);
   const [regopen, setRegopen] = useState(false);
   const [open, setOpen] = useState(false); //category
+  const [isbackgroundColor, setIsbackgroundColor] = useState(false);//category
   const router = useNavigate();
-  const [isbackgroundColor, setIsbackgroundColor] = useState(false);
+  const [userdata, setUserdata] = useState({
+    email: "",
+    password: "",
+  });
+  const hangleChangeLogin = (event) => {
+    setUserdata({ ...userdata, [event.target.name]: event.target.value });
+  };
 
   // -----------------------for cart----------------------
 
@@ -65,6 +41,8 @@ const Navbar = () => {
   const letclose = () => {
     setLoginopen(false);
   };
+
+  // const [regopen, setRegopen] = useState(false);
 
   const letopenREG = () => {
     setLoginopen(false);
@@ -88,34 +66,36 @@ const Navbar = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if ( userdata.email && userdata.password) {
-      
-            const response = await axios.post("http://localhost:8000/login", { userdata });
-            if (response.data.success) {
-            //   console.log(response.data,"data");
-            //    const token  = response.data.token;
-            //    const user = response.data.user;
-            // // console.log(user,"userdata");
-            //   await login(token , user)
-
-            dispatch({
-              type: 'LOGIN',
-              payload: response.data.user
-          })
-          localStorage.setItem("token", JSON.stringify(response.data.token))
-                setUserdata({ email: "", password: "" })
-                router('/')
-                toast.success(response.data.message)
-            } else {
-                toast.error(response.data.message)
-            }
-
-       
+    if (userdata.email && userdata.password) {
+      const response = await axios.post("http://localhost:8000/login", {
+        userdata,
+      });
+      if (response.data.success) {
+        dispatch({
+          type: "LOGIN",
+          payload: response.data.user,
+        });
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+        setUserdata({ email: "", password: "" });
+        router("/");
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
     } else {
-        toast.error("All fields are mandtory.")
+      toast.error("All fields are mandtory.");
     }
-}
+  };
 
+  useEffect(() => {
+    if (state?.user) {
+      setUserdata(state?.user);
+    } else {
+      setUserdata({});
+    }
+  }, [state]);
+
+  console.log(userdata, "datahere");
   return (
     <>
       <div id="navbar">
@@ -142,19 +122,20 @@ const Navbar = () => {
               {userdata?.email && (
                 <span onMouseEnter={handleMouseEnter}>
                   {userdata.name}
-                  <i class="fa-solid fa-chevron-down fa-lg"></i>
+                  <i className="fa-solid fa-chevron-down fa-lg"></i>
                 </span>
               )}
               {!userdata?.email && (
                 <span onClick={letopen}>
                   {" "}
-                  Login/SignUp <i class="fa-solid fa-chevron-down fa-lg"></i>
+                  Login/SignUp{" "}
+                  <i className="fa-solid fa-chevron-down fa-lg"></i>
                 </span>
               )}
 
-              {userdata?.role == "Seller" && (
+              {state?.user?.role == "Seller" && (
                 <span onClick={() => router("/AddProduct")}>
-                  <i class="fa-solid fa-plus">
+                  <i className="fa-solid fa-plus">
                     {" "}
                     <small>ADD</small>
                   </i>
@@ -207,7 +188,7 @@ const Navbar = () => {
                   <p>CLiQ Cash</p>
                 </div>
                 {/* onClick={logout} */}
-                <div onClick={logout}>
+                <div>
                   <img
                     src="https://www.tatacliq.com/src/account/components/img/settings.svg"
                     alt=""
@@ -227,25 +208,25 @@ const Navbar = () => {
                 color: isbackgroundColor ? "black" : "white",
               }}
             >
-              Categories <i class="fa-solid fa-angle-down"></i>
+              Categories <i className="fa-solid fa-angle-down"></i>
             </div>
             <div className="margin-top">
-              Brand <i class="fa-solid fa-angle-down"></i>
+              Brand <i className="fa-solid fa-angle-down"></i>
             </div>
             <div>
               <div>
                 {" "}
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
                 <input type="search" placeholder="Search for Brands" />
               </div>
             </div>
             <div id="down-bar-logo">
               <i
-                class="fa-regular fa-heart fa-lg"
+                className="fa-regular fa-heart fa-lg"
                 onClick={() => router("/Wishlist")}
               ></i>
               <i
-                class="fa-solid fa-bag-shopping fa-lg"
+                className="fa-solid fa-bag-shopping fa-lg"
                 onClick={() => router("/Cart")}
               ></i>
             </div>
@@ -279,7 +260,7 @@ const Navbar = () => {
             <div id="login-body">
               <div id="login">
                 <span onClick={letclose}>
-                  <i class="fa-solid fa-x"></i>
+                  <i className="fa-solid fa-x"></i>
                 </span>
                 <h1>Welcome to Tata </h1>
                 <h1>CLiQ</h1>
@@ -319,10 +300,10 @@ const Navbar = () => {
           </>
         )}
 
-        {/* letcloseREG  */}
+        
 
         {regopen && (
-          <Register letcloseREG={letcloseREG} letopenREG={letopenREG} />
+          <Register letcloseREG={letcloseREG} onClose={letcloseREG} />
         )}
       </div>
     </>

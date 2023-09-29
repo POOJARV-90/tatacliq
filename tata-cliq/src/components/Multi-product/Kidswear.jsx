@@ -1,6 +1,7 @@
 import React from 'react'
 import data from "../Multi-product/KidsMultiplepo.json"
-import Navbar from '../Navbar'
+import Navbar from '../common/Navbar'
+
 
 
 const Kidswear = () => {

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Multi-product/Allpoduct.css";
-import Navbar from "../Navbar";
+import Navbar from "../common/Navbar";
+
 
 const Allproduct = () => {
   const [isProductsExist, setIsProductsExist] = useState(false);

@@ -1,6 +1,7 @@
 import React from "react";
 import womenproduct from "../Multi-product/WomensMultipro.json";
-import Navbar from "../Navbar";
+import Navbar from "../common/Navbar";
+
 
 const WomensMultiplepro = () => {
   return (

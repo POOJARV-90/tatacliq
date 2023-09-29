@@ -1,6 +1,7 @@
 import React from 'react'
 import homeKitdata from "../Multi-product/HomeKitchen.json"
-import Navbar from '../Navbar'
+import Navbar from '../common/Navbar'
+
 
 
 const HomeKit = () => {

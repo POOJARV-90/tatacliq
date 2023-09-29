@@ -1,6 +1,7 @@
 import React from 'react'
 import Jwellerydata from "../Multi-product/Jwellerypro.json"
-import Navbar from '../Navbar'
+import Navbar from '../common/Navbar'
+
 
 const Jwellery = () => {
   return (

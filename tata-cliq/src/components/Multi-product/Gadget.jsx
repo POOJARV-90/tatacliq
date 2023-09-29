@@ -1,6 +1,7 @@
 import React from 'react'
 import Gadgetdata from "../Multi-product/Gadgetpro.json"
-import Navbar from '../Navbar'
+import Navbar from '../common/Navbar'
+
 
 const Gadget = () => {
   return (

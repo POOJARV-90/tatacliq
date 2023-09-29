@@ -1,6 +1,7 @@
 import React from 'react'
 import Accessoriesdata from "../Multi-product/Accessoriespro.json"
-import Navbar from '../Navbar'
+import Navbar from '../common/Navbar'
+
 
 // console.log(Accessoriesdata,"data")
 

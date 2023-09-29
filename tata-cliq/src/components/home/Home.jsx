@@ -1,4 +1,5 @@
-import Navbar from "../Navbar"
+
+import Navbar from "../common/Navbar"
 import "./Home2.css"
 
 

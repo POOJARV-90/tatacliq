@@ -8,27 +8,28 @@ const Cart = () => {
   //   Checkoutdata("/Cartshipform");
   // }
 
+
   const [finalprice, setFinalPrice] = useState(0);
   const [userCart, setUserCart] = useState([]);
   const router = useNavigate();
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("CurrentUser"));
-    if (user?.email) {
-      const allUsers = JSON.parse(localStorage.getItem("Users"));
-      for (var i = 0; i < allUsers.length; i++) {
-        if (
-          allUsers[i].email == user.email &&
-          allUsers[i].password == user.password
-        ) {
-          setUserCart(allUsers[i].cart);
-          break;
-        }
-      }
-    } else {
-      alert("Please login to watch all cart products.");
-      router("/login");
-    }
-  }, []);
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("CurrentUser"));
+  //   if (user?.email) {
+  //     const allUsers = JSON.parse(localStorage.getItem("Users"));
+  //     for (var i = 0; i < allUsers.length; i++) {
+  //       if (
+  //         allUsers[i].email == user.email &&
+  //         allUsers[i].password == user.password
+  //       ) {
+  //         setUserCart(allUsers[i].cart);
+  //         break;
+  //       }
+  //     }
+  //   } else {
+  //     alert("Please login to watch all cart products.");
+  //     router("/login");
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (userCart.length) {
@@ -40,18 +41,18 @@ const Cart = () => {
     }
   }, [userCart]);
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("CurrentUser"));
-    if (user) {
-      if (user?.role == "Seller") {
-        alert("Access granted only to Buyer.");
-        router("/");
-      }
-    } else {
-      alert("You are not a Logged in user.");
-      router("/practicelogin");
-    }
-  }, []);
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("CurrentUser"));
+  //   if (user) {
+  //     if (user?.role == "Seller") {
+  //       alert("Access granted only to Buyer.");
+  //       router("/");
+  //     }
+  //   } else {
+  //     alert("You are not a Logged in user.");
+  //     router("/practicelogin");
+  //   }
+  // }, []);
 
   function checkout() {
     const user = JSON.parse(localStorage.getItem("CurrentUser"));
@@ -77,7 +78,7 @@ const Cart = () => {
       <div id="body-cart">
         <div id="xyz">
           <div>
-            <div>
+            <div onClick={()=>router("/")}>
               <img
                 src="http://www.pngimagesfree.com/LOGO/T/Tata-CLiQ/Tata-cliq-logo-PNG-White.png"
                 alt=""
