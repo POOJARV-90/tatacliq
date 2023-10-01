@@ -67,7 +67,7 @@ const Navbar = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (userdata.email && userdata.password) {
-      const response = await axios.post("http://localhost:8000/login", {
+      const response = await axios.post("http://localhost:7000/login", {
         userdata,
       });
       if (response.data.success) {
