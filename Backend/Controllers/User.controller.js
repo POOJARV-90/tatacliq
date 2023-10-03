@@ -37,7 +37,7 @@ export const Register = async (req, res) => {
 
 export const Login = async (req, res) => {
   try {
-    // .userdata
+   
     const { email, password } = req.body.userdata   //.userdata;
     if (!email || !password)
       return res.json({
@@ -104,6 +104,7 @@ export const getCurrentUser = async (req, res) => {
       name: user?.name,
       email: user?.email,
       _id: user?._id,
+      role:user?.role
     };
 
     return res.json({ success: true, user: userObeject });

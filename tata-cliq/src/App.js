@@ -11,7 +11,6 @@ import MensMultiplepro from './components/Multi-product/MensMultiplepro';
 import SingleProduct from './components/single-poduct/SingleProduct';
 import Profile from './components/Profile-page/Profile';
 import Cart from './components/cart/Cart';
-import WomensMultiplepro from './components/Multi-product/WomensMultiplepro';
 import Kidswear from './components/Multi-product/Kidswear';
 import HomeKit from './components/Multi-product/HomeKit';
 import Beauty from './components/Multi-product/Beauty';
@@ -22,9 +21,12 @@ import Wishlist from './components/Wishlist/Wishlist';
 import Cartshipform from './components/cart/Cartshipform';
 import Allproduct from './components/Multi-product/Allproduct';
 import Singlepoduct from './components/Multi-product/Singlepoduct';
-import AddProduct from './components/productadd/AddProduct';
 import Register from './components/Register';
 import Navbar from './components/common/Navbar';
+import AddProduct from './components/Seller/AddProduct';
+import Yourproduct from './components/Seller/Yourproduct';
+import WomensMultiplepro from './components/Multi-product/WomensMultiplepro';
+import PageNotFound from './components/common/PageNotFound';
 
 
 
@@ -54,20 +56,12 @@ function App() {
         <Route exact path='/Cartshipform' element={<Cartshipform/>}/>
         <Route exact path='/AddProduct' element={<AddProduct/>}/>
         <Route exact path='/Allproduct' element={<Allproduct/>}/>
-        <Route exact path='/Singlepoduct/:id' element={<Singlepoduct/>}/>
-        <Route exact path='register' element={<Register/>}/>
-
-
-  
-  
-  
-
-        
+        <Route exact path='/Singleproduct/:id' element={<Singlepoduct/>}/>
+        <Route exact path='/register' element={<Register/>}/>
+        <Route exact path='/seller-your-product' element={<Yourproduct/>}/>
+        <Route path="*" element={<PageNotFound/>} /> 
       </Routes>
       <Footer/>
-
-
-      
     </div>
   );
 }

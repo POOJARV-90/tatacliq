@@ -1,5 +1,5 @@
 import React from 'react'
-import Gadgetdata from "../Multi-product/Gadgetpro.json"
+import Gadgetdata from "./Gadgetpro.json"
 import Navbar from '../common/Navbar'
 
 

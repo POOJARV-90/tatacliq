@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Multi-product/Allpoduct.css";
 import Navbar from "../common/Navbar";
+import axios from "axios";
 
 
 const Allproduct = () => {
@@ -10,20 +11,20 @@ const Allproduct = () => {
   const router = useNavigate();
 
   useEffect(() => {
-    const productsFromDb = JSON.parse(localStorage.getItem("Products"));
-    if (productsFromDb?.length) {
-      setIsProductsExist(true);
-      setProducts(productsFromDb);
-    } else {
-      setIsProductsExist(false);
-      setProducts([]);
+    async function getProducts() {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const response = await axios.get("http://localhost:7000/all-products", { token });
+      if (response.data.success) {
+        setProducts(response.data.Product);
+        setIsProductsExist(true)
+      }
     }
+    getProducts();
   }, []);
+  // console.log(products,"adjajhdjah");
+  
 
-  const tosingleproduct = (id) => {
-    console.log(id, "id");
-    router(`/Singlepoduct/${id}`);
-  };
+ 
 
   return (
     <>
@@ -208,14 +209,19 @@ const Allproduct = () => {
                 {/* onClick={toGo} */}
 
                 {!isProductsExist ? (
-                  <div>No products</div>
+                  <div> 
+                    {/* No products */}
+                    <img className="loader" src="https://hackernoon.imgix.net/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="" />
+
+                  </div>
                 ) : (
                   <>
                     {products &&
                       products.map((pro) => (
+                        // onClick={() => tosingleproduct(pro.id)}
                         <div
-                          onClick={() => tosingleproduct(pro.id)}
-                          key={pro.name}
+                        onClick={() => router(`/Singleproduct/${pro._id}`)} 
+                          key={pro._id}
                         >
                           <div>
                             <img id="img" src={pro.image} />
@@ -245,6 +251,9 @@ const Allproduct = () => {
                 )}
               </div>
             </div>
+          </div>
+          <div>
+            next page
           </div>
         </div>
       </div>

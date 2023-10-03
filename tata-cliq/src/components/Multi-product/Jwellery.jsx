@@ -1,5 +1,5 @@
 import React from 'react'
-import Jwellerydata from "../Multi-product/Jwellerypro.json"
+import Jwellerydata from "./Jwellerypro.json"
 import Navbar from '../common/Navbar'
 
 

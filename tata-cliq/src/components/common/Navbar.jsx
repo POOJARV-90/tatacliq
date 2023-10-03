@@ -13,7 +13,7 @@ const Navbar = () => {
   const [loginopen, setLoginopen] = useState(false);
   const [regopen, setRegopen] = useState(false);
   const [open, setOpen] = useState(false); //category
-  const [isbackgroundColor, setIsbackgroundColor] = useState(false);//category
+  const [isbackgroundColor, setIsbackgroundColor] = useState(false); //category
   const router = useNavigate();
   const [userdata, setUserdata] = useState({
     email: "",
@@ -68,7 +68,7 @@ const Navbar = () => {
     event.preventDefault();
     if (userdata.email && userdata.password) {
       const response = await axios.post("http://localhost:7000/login", {
-        userdata,
+        userdata
       });
       if (response.data.success) {
         dispatch({
@@ -88,6 +88,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    // console.log(state,"statehere")
     if (state?.user) {
       setUserdata(state?.user);
     } else {
@@ -95,7 +96,7 @@ const Navbar = () => {
     }
   }, [state]);
 
-  console.log(userdata, "datahere");
+  // console.log(userdata, "datahere");
   return (
     <>
       <div id="navbar">
@@ -133,14 +134,29 @@ const Navbar = () => {
                 </span>
               )}
 
-              {state?.user?.role == "Seller" && (
+              {state?.user?.role === "Seller" && (
                 <span onClick={() => router("/AddProduct")}>
-                  <i className="fa-solid fa-plus">
-                    {" "}
-                    <small>ADD</small>
-                  </i>
+                  <i className="fa-solid fa-plus"> </i>
+
+              
                 </span>
               )}
+
+{state?.user?.role === "Seller" && (
+                <span onClick={() => router("/seller-your-product")}>
+                  <i
+                     
+                     className="fa-solid fa-bars"
+                   ></i>
+
+              
+                </span>
+              )}
+
+<span >
+                    {" "}
+                   
+                  </span>
             </span>
 
             {display && (
@@ -188,7 +204,7 @@ const Navbar = () => {
                   <p>CLiQ Cash</p>
                 </div>
                 {/* onClick={logout} */}
-                <div>
+                <div  onClick={() => dispatch({ type: "LOGOUT" })}>
                   <img
                     src="https://www.tatacliq.com/src/account/components/img/settings.svg"
                     alt=""
@@ -299,8 +315,6 @@ const Navbar = () => {
             </div>
           </>
         )}
-
-        
 
         {regopen && (
           <Register letcloseREG={letcloseREG} onClose={letcloseREG} />

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "../productadd/Addporduct.css";
+import "./Addporduct.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../common/Navbar";
 import toast from "react-hot-toast";
 import axios from "axios";
+import Sellerprotected from "./Sellerprotected";
 const AddProduct = () => {
   const [productData, setProductData] = useState({ name: "", price: "", image: "", category: "" })
 
@@ -52,7 +53,8 @@ const AddProduct = () => {
   // }, []);
 
   return (
-    <div id="add-body">
+    <Sellerprotected>
+      <div id="add-body">
       <Navbar />
       <form onSubmit={handleSubmit}>
         <h4>ADD PRODUCT</h4> <br />
@@ -97,6 +99,7 @@ const AddProduct = () => {
         <input type="submit" value="Add Product" />
       </form>
     </div>
+    </Sellerprotected>
   );
 };
 

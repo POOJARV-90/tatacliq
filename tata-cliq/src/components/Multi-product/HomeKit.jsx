@@ -1,5 +1,5 @@
 import React from 'react'
-import homeKitdata from "../Multi-product/HomeKitchen.json"
+import homeKitdata from "./HomeKitchen.json"
 import Navbar from '../common/Navbar'
 
 

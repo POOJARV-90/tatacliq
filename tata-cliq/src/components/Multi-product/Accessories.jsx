@@ -1,5 +1,5 @@
 import React from 'react'
-import Accessoriesdata from "../Multi-product/Accessoriespro.json"
+import Accessoriesdata from "./Accessoriespro.json"
 import Navbar from '../common/Navbar'
 
 

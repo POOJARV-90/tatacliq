@@ -29,7 +29,7 @@ const Authprovider = ({ children }) => {
       var token = JSON.parse(localStorage.getItem("token"));
       if (token) {
         try {
-          const response = await axios.post("http://localhost:8000/get-current-user", { token });
+          const response = await axios.post("http://localhost:7000/get-current-user", { token });
         if (response.data.success) {
             dispatch({
                 type: "LOGIN",

@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Authcontext } from "../Context/Authcontext";
+import toast from "react-hot-toast";
 
 const Cart = () => {
-  // const Checkoutdata = useNavigate();
-  // function gotoCheckout() {
-  //   Checkoutdata("/Cartshipform");
-  // }
-
-
+  
   const [finalprice, setFinalPrice] = useState(0);
   const [userCart, setUserCart] = useState([]);
   const router = useNavigate();
-  // useEffect(() => {
-  //   const user = JSON.parse(localStorage.getItem("CurrentUser"));
-  //   if (user?.email) {
-  //     const allUsers = JSON.parse(localStorage.getItem("Users"));
-  //     for (var i = 0; i < allUsers.length; i++) {
-  //       if (
-  //         allUsers[i].email == user.email &&
-  //         allUsers[i].password == user.password
-  //       ) {
-  //         setUserCart(allUsers[i].cart);
-  //         break;
-  //       }
-  //     }
-  //   } else {
-  //     alert("Please login to watch all cart products.");
-  //     router("/login");
-  //   }
-  // }, []);
+  const {state} = useContext(Authcontext)
+
+  useEffect(() => {
+    async function getCartProduct() {
+      try {
+          const response = await axios.post('http://localhost:7000/your-cart-product', { userId: state?.user?._id })
+          if (response.data.success) {
+            setUserCart(response.data.cartProducts)
+          }
+      } catch (error) {
+          console.log(error, "error in cart")
+      }
+  }
+  if (state?.user?._id) {
+      getCartProduct()
+  }
+  }, [state]);
 
   useEffect(() => {
     if (userCart.length) {
@@ -41,38 +38,27 @@ const Cart = () => {
     }
   }, [userCart]);
 
-  // useEffect(() => {
-  //   const user = JSON.parse(localStorage.getItem("CurrentUser"));
-  //   if (user) {
-  //     if (user?.role == "Seller") {
-  //       alert("Access granted only to Buyer.");
-  //       router("/");
-  //     }
-  //   } else {
-  //     alert("You are not a Logged in user.");
-  //     router("/practicelogin");
-  //   }
-  // }, []);
-
-  function checkout() {
-    const user = JSON.parse(localStorage.getItem("CurrentUser"));
-    if (user?.email) {
-      const allUsers = JSON.parse(localStorage.getItem("Users"));
-      for (var i = 0; i < allUsers.length; i++) {
-        if (
-          allUsers[i].email == user.email &&
-          allUsers[i].password == user.password
-        ) {
-          allUsers[i].cart = [];
-          break;
+  
+  const checkOut = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token,"token here")
+      if (token) {
+        console.log(token,"token here")
+      try {
+        const response = await axios.post("http://localhost:7000/remove-all-cart-products", {token});
+        // console.log(response.data.success,"response here");
+        if (response.data.success) {
+          toast.success(response.data.message);
+          setUserCart([]);
+          setFinalPrice([])
+        } else {
+          toast.error(response.data.message);
         }
+      } catch (error) {
+        toast.error(error.message);
       }
-      localStorage.setItem("Users", JSON.stringify(allUsers));
     }
-    setFinalPrice([]);
-    setUserCart([]);
-    alert("Your products will be delivered soon. Thankyou for shopping!");
-  }
+  };
   return (
     <>
       <div id="body-cart">
@@ -196,17 +182,17 @@ const Cart = () => {
 
                     <div>
                       <span>Bag Subtotal</span>
-                      <span>₹ {finalprice - 200}</span>
+                      <span>₹ {(finalprice * 0.5).toFixed(2)} ₹ </span>
                     </div>
                   </div>
                 </div>
 
                 <div id="whole-amt">
                   <div className="font-style">
-                    Total <br /> ₹ {finalprice - 200}
+                    Total <br /> ₹  {(finalprice * 0.5).toFixed(2)}
                   </div>
 
-                  <button onClick={checkout} id="checkout">
+                  <button onClick={checkOut} id="checkout">
                     Checkout
                   </button>
                 </div>

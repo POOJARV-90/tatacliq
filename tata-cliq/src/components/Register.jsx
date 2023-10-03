@@ -21,7 +21,7 @@ const Register = ({ letcloseREG, onClose }) => {
         event.preventDefault();
         if (userdata.name && userdata.email && userdata.password && userdata.confirmpassword && userdata.role) {
             if (userdata.password === userdata.confirmpassword) {
-                const response = await axios.post("http://localhost:8000/register", { userdata });
+                const response = await axios.post("http://localhost:7000/register", { userdata });
                 if (response.data.success) {
                     setUserdata({ name: "", email: "", password: "", confirmpassword: "", role: "Buyer" })
                     router('/')
@@ -67,10 +67,10 @@ const Register = ({ letcloseREG, onClose }) => {
                   type="email"
                   onChange={handlechange}
                   name="email"
-                />{" "}
+                />
                 <br />
-                <label htmlFor="">Select Role : </label>
-                <select id="select" onChange={selectrole}>
+                <label>Select Role : </label>
+                <select id="select" onChange={selectrole} value={userdata.role}>
                   <option value="Buyer">Buyer</option>
                   <option value="Seller">Seller</option>
                 </select>

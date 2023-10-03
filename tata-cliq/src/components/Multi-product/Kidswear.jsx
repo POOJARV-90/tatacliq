@@ -1,5 +1,5 @@
 import React from 'react'
-import data from "../Multi-product/KidsMultiplepo.json"
+import data from "./KidsMultiplepo.json"
 import Navbar from '../common/Navbar'
 
 

@@ -3,114 +3,58 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Authcontext } from "../Context/Authcontext";
 import Navbar from "../common/Navbar";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 
 const Singlepoduct = () => {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [currentUserEmail, setCurrentUserEmail] = useState("");
-  const [products, setProducts] = useState([]);
-  const [single, setSingle] = useState({});
-  const { id } = useParams();
-  const router = useNavigate();
-  const { state } = useContext(Authcontext);
-  const [isProductExist, setIsProductExist] = useState(false);
-  const [userData, setUserData] = useState({});
-  const [productData, setProductData] = useState({
-    name: "",
-    price: "",
-    image: "",
-    category: "Other",
-  });
-  const [allowUpdate, setAllowUpdate] = useState(false);
+  const [singlepro , setSinglepro] = useState({})
+ 
+  const {id} = useParams();
+  const {state} = useContext(Authcontext) 
+  const router = useNavigate()
 
-  useEffect(() => {
-    if (state) {
-      setUserData(state.user);
-    }
-  }, [state]);
-
-  useEffect(() => {
-    const productFromDB = JSON.parse(localStorage.getItem("Products"));
-    if (productFromDB) {
-      setIsProductExist(true);
-      setProducts(productFromDB);
-    } else {
-      setIsProductExist(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isProductExist) {
-      if (id && products.length) {
-        const res = products.find((pro) => pro.id == id);
-        setSingle(res);
-      }
-    }
-  }, [id, products]);
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("CurrentUser"));
-    // console.log(user, "uzer");
-    if (user) {
-      setIsUserLoggedIn(true);
-      setCurrentUserEmail(user.email);
-    }
-  }, []);
-
-  function addCart() {
-    if (isUserLoggedIn) {
-      const users = JSON.parse(localStorage.getItem("Users"));
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].email == currentUserEmail) {
-          users[i]?.cart?.push(single);
-          localStorage.setItem("Users", JSON.stringify(users));
-          break;
+  useEffect(()=> {
+    if(id){
+        async function getSingleproduct(){
+            try {
+                const responce = await axios.post("http://localhost:7000/get-single-product-data",{productId: id})
+                if(responce.data.success){
+                    setSinglepro(responce.data.product)    
+                }
+                
+            } catch (error) {
+                console.log("oops something went wrong :( ");
+            }
         }
-      }
-      alert("Product successfully added to cart!");
-      router("/Allproduct");
-    } else {
-      alert("You can't add a product before logging in!");
+        getSingleproduct()
     }
-  }
+    
+},[id])
 
-  function uptoDate() {
-    setAllowUpdate(true);
-  }
-
-  function closeUpate() {
-    setAllowUpdate(false);
-  }
-
-  function handleChange(e) {
-    setProductData({ ...productData, [e.target.name]: e.target.value });
-  }
-
-  function selectRole(e) {
-    setProductData({ ...productData, ["category"]: e.target.value });
-  }
-  function handleSubmit(e) {
-    e.preventDefault();
-    const allProduct = JSON.parse(localStorage.getItem("Products"));
-    for (let i = 0; i < allProduct.length; i++) {
-      if (allProduct[i].id === id) {
-        allProduct[i].image = productData.image;
-        allProduct[i].name = productData.name;
-        allProduct[i].price = productData.price;
-        allProduct[i].category = productData.category;
-        single.image = productData.image;
-        single.name = productData.name;
-        single.price = productData.price;
-        single.category = productData.category;
-
-        localStorage.setItem("Products", JSON.stringify(allProduct));
-        setProductData({ name: "", price: "", image: "", category: "Other" });
-        alert("Product Updated!");
+const addCart = async(id) => {
+  // alert("working")
+  try {
+      let response = await axios.post('http://localhost:7000/cart',{productId:id , userId:state?.user?._id});
+      console.log(response,"responce");
+      if (response?.data?.success) {
+          toast.success("Product added successfully to cart.")
+      }else{
+        toast.error("internal error")
       }
-    }
+
+  } catch (error) {
+      // toast.error("oops something went wrong :( / login before add to cart");
+
+      console.log(error);
   }
+
+}
+
+ 
 
   return (
+
     <>
       <Navbar />
       <div id="single-pro-body">
@@ -118,42 +62,44 @@ const Singlepoduct = () => {
           <div id="left-container">
             <div>
               <div>
-                <img src={single.image} />
+                <img src={singlepro.image} />
               </div>
               <div>
-                <img src={single.image} alt="" />
+                <img src={singlepro.image} alt="" />
               </div>
             </div>
             <div>
               <div>
-                <img src={single.image} alt="" />
+                <img src={singlepro.image} alt="" />
               </div>
               <div>
-                <img src={single.image} alt="" />
+                <img src={singlepro.image} alt="" />
               </div>
               <div>
-                <img src={single.image} alt="" />
+                <img src={singlepro.image} alt="" />
               </div>
             </div>
           </div>
           <div id="right-container">
             <div id="right-1">
-              <h3>{single.name}</h3>
+
+
+              <h3>{singlepro.name}</h3>
               <p></p>
-              <b>₹{single.price}</b>
+              <b>₹{singlepro.price}</b>
               <span>
                 MRP:
                 <s>₹1799 </s>
               </span>
               <b>63% Off</b> <br />
-              <span>{single.category}</span>
+              <span>{singlepro.category}</span>
               <div>
                 <p>
                   Use MENSEOSS coupon to get 10% off on cart value 1999/- and
                   above.
                 </p>
                 <span>
-                  5 <i class="fa-solid fa-star fa-xs"></i>
+                  5 <i className="fa-solid fa-star fa-xs"></i>
                 </span>{" "}
                 <span>
                   {" "}
@@ -282,7 +228,7 @@ const Singlepoduct = () => {
               <p className="the-input">
                 <span>Sold By 1 Puma Sports India Pvt Ltd</span>
                 <span>
-                  <i class="fa-solid fa-angle-right"></i>
+                  <i className="fa-solid fa-angle-right"></i>
                 </span>
               </p>
             </div>
@@ -303,122 +249,13 @@ const Singlepoduct = () => {
 
               <div>
                 <button>Buy Now </button>
-                <button onClick={addCart}>Add to Bag</button>
+                
+                <button onClick={()=>addCart(singlepro._id)}>Add to Bag</button>
               </div>
             </div>
           </div>
         </div>
-        <div id="recomend-img">
-          <div>
-            <div>
-              <img
-                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
-                alt=""
-              />
-            </div>
-
-            <h2>Red cheif</h2>
-            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
-            <p>
-              {" "}
-              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
-            </p>
-            <span>
-              4.5 <i class="fa-solid fa-star fa-xs"></i>
-            </span>
-            <b>(10)</b>
-            <br />
-            <button>Buy Now</button>
-          </div>
-
-          <div>
-            <div>
-              <img
-                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
-                alt=""
-              />
-            </div>
-
-            <h2>Red cheif</h2>
-            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
-            <p>
-              {" "}
-              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
-            </p>
-            <span>
-              4.5 <i class="fa-solid fa-star fa-xs"></i>
-            </span>
-            <b>(10)</b>
-            <br />
-            <button>Buy Now</button>
-          </div>
-
-          <div>
-            <div>
-              <img
-                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
-                alt=""
-              />
-            </div>
-
-            <h2>Red cheif</h2>
-            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
-            <p>
-              {" "}
-              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
-            </p>
-            <span>
-              4.5 <i class="fa-solid fa-star fa-xs"></i>
-            </span>
-            <b>(10)</b>
-            <br />
-            <button>Buy Now</button>
-          </div>
-
-          <div>
-            <div>
-              <img
-                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
-                alt=""
-              />
-            </div>
-
-            <h2>Red cheif</h2>
-            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
-            <p>
-              {" "}
-              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
-            </p>
-            <span>
-              4.5 <i class="fa-solid fa-star fa-xs"></i>
-            </span>
-            <b>(10)</b>
-            <br />
-            <button>Buy Now</button>
-          </div>
-
-          <div>
-            <div>
-              <img
-                src="https://img.tatacliq.com/images/i9/437Wx649H/MP000000016373929_437Wx649H_202302042021191.jpeg"
-                alt=""
-              />
-            </div>
-
-            <h2>Red cheif</h2>
-            <p>Red Chief Blue Slim Fit Lightly Washed Jeans</p>
-            <p>
-              {" "}
-              <b>₹2115</b> <s>₹4699</s> <span>59% off</span>
-            </p>
-            <span>
-              4.5 <i class="fa-solid fa-star fa-xs"></i>
-            </span>
-            <b>(10)</b>
-            <br />
-            <button>Buy Now</button>
-          </div>
-        </div>
+  
       </div>
     </>
   );

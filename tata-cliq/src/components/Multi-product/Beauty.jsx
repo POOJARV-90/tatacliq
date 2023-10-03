@@ -1,5 +1,5 @@
 import React from 'react'
-import Beautyprodata from "../Multi-product/Beautypro.json"
+import Beautyprodata from "./Beautypro.json"
 import Navbar from '../common/Navbar'
 
 

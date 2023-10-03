@@ -1,5 +1,5 @@
 import React from "react";
-import womenproduct from "../Multi-product/WomensMultipro.json";
+import womenproduct from "./WomensMultipro.json";
 import Navbar from "../common/Navbar";
 
 
