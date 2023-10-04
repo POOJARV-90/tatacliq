@@ -1,21 +1,32 @@
-import React from 'react'
-import Accessoriesdata from "./Accessoriespro.json"
-import Navbar from '../common/Navbar'
-
-
-// console.log(Accessoriesdata,"data")
-
-
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../common/Navbar';
 
 const Accessories = () => {
+    const [isProductsExist, setIsProductsExist] = useState(false);
+    const [products, setProducts] = useState([]);
+    const router = useNavigate();
+  
+    useEffect(() => {
+      async function getProducts() {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const response = await axios.get("http://localhost:7000/all-products", { token });
+        if (response.data.success) {
+          setProducts(response.data.Product);
+          setIsProductsExist(true)
+        }
+      }
+      getProducts();
+    }, []);
+    console.log(products,"HERE");
   return (
     <>
-      <Navbar />
+    <Navbar />
+    <div id="pro-body">
       <div id="parent">
         <div id="head1">
-          <h1>Womens bags
-             </h1>
-          <p>34435 Products</p>
+          <h1>Women's clothing</h1>
         </div>
 
         <div id="parent2">
@@ -191,44 +202,56 @@ const Accessories = () => {
             <div id="right">
               {/* onClick={toGo} */}
 
-              {Accessoriesdata.map((Accessoriespro) => (
-                  <div>
-                 
-                
-
-                  <div>
-                  <img id='img'  src={Accessoriespro.image} />
-                    <img
-                      src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
-                      alt=""
-                    />
-                    <img
-                      src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
-                      alt=""
-                    />
-                    {/* <div> {Accessoriespro.New}</div> */}
-                  </div>
-  
-                  <h2>{Accessoriespro.brand}</h2>
-                  <p>{Accessoriespro.description}</p>
-                  <p>
-                    
-                    <b> ₹{Accessoriespro.price}</b> <s>₹ {Accessoriespro.discount}</s>
-                  </p>
-                  <span>
-                    {Accessoriespro.star} <i class="fa-solid fa-star fa-xs"></i>
-                  </span>
-                  <b> {Accessoriespro.instock} </b>
-                  <p> {Accessoriespro.other} </p>
+              {!isProductsExist ? (
+                <div> 
+                  {/* No products */}
+                  <img className="loader" src="https://hackernoon.imgix.net/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="" />
 
                 </div>
-                ))}
-              
+              ) : (
+                <>
+                    {products
+                      .filter((pro) => pro.category === "Accessories")
+                      .map((pro) => (
+                        <div
+                          onClick={() => router(`/Singleproduct/${pro._id}`)}
+                          key={pro._id}
+                        >
+                          <div>
+                            <img id="img" src={pro.image} alt="" />
+                            <img
+                              src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
+                              alt=""
+                            />
+                            <img
+                              src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
+                              alt=""
+                            />
+                          </div>
+
+                          <h2>{pro.category}</h2>
+                          <p> {pro.name}</p>
+                          <p>
+                            <b>{pro.price} ₹</b> <s></s>
+                          </p>
+                          <span>
+                            4.3 <i className="fa-solid fa-star fa-xs"></i>
+                          </span>
+                          <b> </b>
+                          <p> </p>
+                        </div>
+                      ))}
+                  </>
+              )}
             </div>
           </div>
         </div>
+        <div>
+          next page
+        </div>
       </div>
-    </>
+    </div>
+  </>
   )
 }
 

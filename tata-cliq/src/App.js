@@ -27,6 +27,8 @@ import AddProduct from './components/Seller/AddProduct';
 import Yourproduct from './components/Seller/Yourproduct';
 import WomensMultiplepro from './components/Multi-product/WomensMultiplepro';
 import PageNotFound from './components/common/PageNotFound';
+import Fliter from './components/Multi-product/Fliter';
+
 
 
 
@@ -59,6 +61,7 @@ function App() {
         <Route exact path='/Singleproduct/:id' element={<Singlepoduct/>}/>
         <Route exact path='/register' element={<Register/>}/>
         <Route exact path='/seller-your-product' element={<Yourproduct/>}/>
+        <Route exact path='/filter' element={<Fliter/>}/>
         <Route path="*" element={<PageNotFound/>} /> 
       </Routes>
       <Footer/>

@@ -5,9 +5,9 @@ import cors from 'cors'
 import morgan from 'morgan'
 import { Login, Register, getCurrentUser} from './Controllers/User.controller.js';
 import { checkseller } from './Allmiddlewares/Allmiddleware.js';
-import { addProduct, allProducts, getYourProducts } from './Controllers/Sellers.controller.js';
+import { addProduct, allProducts, getYourProducts, updateYourProduct } from './Controllers/Sellers.controller.js';
 import { addCart, allCartProducts, getSingleProductData } from './Controllers/Products.controller.js';
-import { removeAllCartProducts } from './Controllers/Buyers.controller.js'
+import { removeAllCartProducts, removecartproduct } from './Controllers/Buyers.controller.js'
 
 const app = express();
 app.use(express.json())
@@ -29,13 +29,14 @@ app.post('/cart',addCart)
 app.post('/get-single-product-data',getSingleProductData)
 app.post('/your-cart-product',allCartProducts)
 app.post('/remove-all-cart-products',removeAllCartProducts)
+app.post('/remove-cart-product',removecartproduct)
 
 
 
 //SELLER
 app.post('/get-your-product' , checkseller, getYourProducts) //1
 app.post('/add-product',checkseller,addProduct )  //1
-
+app.post('/edit-product', updateYourProduct)
 
 
 mongoose.connect(process.env.MONGODB_URL).then(()=>{

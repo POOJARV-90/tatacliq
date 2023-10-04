@@ -1,16 +1,32 @@
-import React from "react";
-import womenproduct from "./WomensMultipro.json";
-import Navbar from "../common/Navbar";
-
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../common/Navbar';
 
 const WomensMultiplepro = () => {
+    const [isProductsExist, setIsProductsExist] = useState(false);
+    const [products, setProducts] = useState([]);
+    const router = useNavigate();
+  
+    useEffect(() => {
+      async function getProducts() {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const response = await axios.get("http://localhost:7000/all-products", { token });
+        if (response.data.success) {
+          setProducts(response.data.Product);
+          setIsProductsExist(true)
+        }
+      }
+      getProducts();
+    }, []);
+    console.log(products,"HERE");
   return (
     <>
-      <Navbar />
+    <Navbar />
+    <div id="pro-body">
       <div id="parent">
         <div id="head1">
-          <h1>W women's clothing</h1>
-          <p>2007 Products</p>
+          <h1>Women's clothing</h1>
         </div>
 
         <div id="parent2">
@@ -39,12 +55,12 @@ const WomensMultiplepro = () => {
               <div id="de-ca">
                 <div>
                   <h4>Department</h4>
-                  <span>women's Clothing</span>
+                  <span>Womens Clothing</span>
                 </div>
 
                 <div>
                   <h4>Category</h4>
-                  <span>Dresses</span>
+                  <span>Women's Bag</span>
                 </div>
               </div>
 
@@ -186,45 +202,57 @@ const WomensMultiplepro = () => {
             <div id="right">
               {/* onClick={toGo} */}
 
-              {womenproduct.map((WomensMultipro) => (
-                  <div>
-                 
-                
-
-                  <div>
-                  <img id='img'  src={WomensMultipro.image} />
-                    <img
-                      src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
-                      alt=""
-                    />
-                    <img
-                      src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
-                      alt=""
-                    />
-                    <div> {WomensMultipro.New}</div>
-                  </div>
-  
-                  <h2>{WomensMultipro.brand}</h2>
-                  <p>{WomensMultipro.description}</p>
-                  <p>
-                    {" "}
-                    <b> ₹{WomensMultipro.price}</b> <s>₹ {WomensMultipro.discount}</s>
-                  </p>
-                  <span>
-                    {WomensMultipro.star} <i class="fa-solid fa-star fa-xs"></i>
-                  </span>
-                  <b> {WomensMultipro.instock} </b>
-                  <p> {WomensMultipro.other} </p>
+              {!isProductsExist ? (
+                <div> 
+                  {/* No products */}
+                  <img className="loader" src="https://hackernoon.imgix.net/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="" />
 
                 </div>
-                ))}
-              
+              ) : (
+                <>
+                    {products
+                      .filter((pro) => pro.category === "Womens")
+                      .map((pro) => (
+                        <div
+                          onClick={() => router(`/Singleproduct/${pro._id}`)}
+                          key={pro._id}
+                        >
+                          <div>
+                            <img id="img" src={pro.image} alt="" />
+                            <img
+                              src="https://www.tatacliq.com/src/general/components/img/WL1.svg"
+                              alt=""
+                            />
+                            <img
+                              src="https://www.tatacliq.com/src/general/components/img/similarIconNew.svg"
+                              alt=""
+                            />
+                          </div>
+
+                          <h2>{pro.category}</h2>
+                          <p> {pro.name}</p>
+                          <p>
+                            <b>{pro.price} ₹</b> <s></s>
+                          </p>
+                          <span>
+                            4.3 <i className="fa-solid fa-star fa-xs"></i>
+                          </span>
+                          <b> </b>
+                          <p> </p>
+                        </div>
+                      ))}
+                  </>
+              )}
             </div>
           </div>
         </div>
+        <div>
+          next page
+        </div>
       </div>
-    </>
-  );
-};
+    </div>
+  </>
+  )
+}
 
-export default WomensMultiplepro;
+export default WomensMultiplepro

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../common/Navbar';
 
-const Kidswear = () => {
+const Fliter = () => {
     const [isProductsExist, setIsProductsExist] = useState(false);
     const [products, setProducts] = useState([]);
     const router = useNavigate();
@@ -26,7 +26,7 @@ const Kidswear = () => {
     <div id="pro-body">
       <div id="parent">
         <div id="head1">
-          <h1>Kid's clothing</h1>
+          <h1>Women's clothing</h1>
         </div>
 
         <div id="parent2">
@@ -55,12 +55,12 @@ const Kidswear = () => {
               <div id="de-ca">
                 <div>
                   <h4>Department</h4>
-                  <span> Clothing</span>
+                  <span>Accessories</span>
                 </div>
 
                 <div>
                   <h4>Category</h4>
-                  <span>Kidswear</span>
+                  <span>Women's Bag</span>
                 </div>
               </div>
 
@@ -211,7 +211,7 @@ const Kidswear = () => {
               ) : (
                 <>
                     {products
-                      .filter((pro) => pro.category === "Kids")
+                      .filter((pro) => pro.category === "Womens")
                       .map((pro) => (
                         <div
                           onClick={() => router(`/Singleproduct/${pro._id}`)}
@@ -255,4 +255,4 @@ const Kidswear = () => {
   )
 }
 
-export default Kidswear
+export default Fliter

@@ -1,10 +1,10 @@
 #pro-body{
     margin-top:1% ;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 #products{
     /* border: 1px solid rgb(0, 255, 98); */
-    border: 5px solid red;
+    /* border: 5px solid red; */
 
     display: flex; 
     flex-wrap: wrap;

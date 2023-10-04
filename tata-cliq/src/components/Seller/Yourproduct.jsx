@@ -3,9 +3,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import '../Style/Yourproduct.css'; // Import your CSS file
 import Navbar from '../common/Navbar';
 import { Authcontext } from '../Context/Authcontext';
+import toast from 'react-hot-toast';
 
 const Yourproduct = () => {
     const [allProducts, setAllProducts] = useState([]);
+    const [editData , seteditDat] = useState({
+        name:"",
+        price:"",
+        image:"",
+        category:""
+      })
     const {state} = useContext(Authcontext)
     useEffect(() => {
         async function getProducts() {
@@ -18,6 +25,16 @@ const Yourproduct = () => {
         }
         getProducts();
     }, [])
+
+    const editProduct = (id) => {
+        try {
+            
+        } catch (error) {
+            toast.error("An error occurred while editing the prouct item from the cart.");
+      console.log(error); 
+        }
+
+    }
   
     return (
         <div id='main'>
@@ -43,7 +60,7 @@ const Yourproduct = () => {
                                 <td>{product.name}</td>
                                 <td>{product.price}</td>
                                 <td>{product.category}</td>
-                                <td> <button className='thebutton'>EDIT</button> </td>
+                                <td> <button className='thebutton' onClick={() => editProduct(product._id)}>EDIT</button> </td>
                                 <td> <button className='thebutton' >Delete</button> </td>
 
                             </tr>
@@ -54,6 +71,8 @@ const Yourproduct = () => {
                 No Products found.
                 
                 </div>}
+
+                <div></div>
         </div>
     )
 }

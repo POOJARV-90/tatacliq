@@ -6,39 +6,64 @@ import { Authcontext } from "../Context/Authcontext";
 import toast from "react-hot-toast";
 
 const Cart = () => {
-  
   const [finalprice, setFinalPrice] = useState(0);
   const [userCart, setUserCart] = useState([]);
   const router = useNavigate();
-  const {state} = useContext(Authcontext)
+  const { state } = useContext(Authcontext);
+  //  console.log(userCart,"ahdha");
+  // Create a state variable to track the quantity of each item in the cart
+  const [itemQuantities, setItemQuantities] = useState({});
 
   useEffect(() => {
     async function getCartProduct() {
       try {
-          const response = await axios.post('http://localhost:7000/your-cart-product', { userId: state?.user?._id })
-          if (response.data.success) {
-            setUserCart(response.data.cartProducts)
-          }
+        const response = await axios.post(
+          "http://localhost:7000/your-cart-product",
+          { userId: state?.user?._id }
+        );
+        if (response.data.success) {
+          // console.log();
+          setUserCart(response.data.cartProducts);
+
+          // Initialize item quantities with the default quantity of 1 for each item
+          const quantities = {};
+          response.data.cartProducts.forEach((item) => {
+            quantities[item._id] = 1;
+          });
+          setItemQuantities(quantities);
+        }
       } catch (error) {
-          console.log(error, "error in cart")
+        console.log(error, "error in cart");
       }
-  }
-  if (state?.user?._id) {
-      getCartProduct()
-  }
-  }, [state]);
+    }
+    if (state?.user?._id) {
+      getCartProduct();
+    }
+  }, [userCart ,state ]);
 
   useEffect(() => {
     if (userCart.length) {
       var totalprice = 0;
       for (var i = 0; i < userCart.length; i++) {
-        totalprice += parseInt(userCart[i].price);
+        totalprice +=
+          parseInt(userCart[i].price) * itemQuantities[userCart[i]._id]; // Multiply by item quantity
+          console.log(itemQuantities[userCart[i]._id],"itemq");
+          console.log(userCart[i]._id,"usercart");
       }
       setFinalPrice(totalprice);
     }
-  }, [userCart]);
+  }, [userCart, itemQuantities]);
 
-  
+  // Function to handle quantity change for an item
+  const handleQuantityChange = (itemId, quantity) => {
+    // Update the quantity in the state
+    const updatedQuantities = { ...itemQuantities };
+    updatedQuantities[itemId] = quantity;
+    // console.log(quantity,"quantity");
+    // console.log(updatedQuantities[itemId],"item");/
+    setItemQuantities(updatedQuantities);
+  };
+
   const checkOut = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
     console.log(token,"token here")
@@ -46,7 +71,7 @@ const Cart = () => {
         console.log(token,"token here")
       try {
         const response = await axios.post("http://localhost:7000/remove-all-cart-products", {token});
-        // console.log(response.data.success,"response here");
+       
         if (response.data.success) {
           toast.success(response.data.message);
           setUserCart([]);
@@ -59,12 +84,41 @@ const Cart = () => {
       }
     }
   };
+
+  const remove = async (id) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      // console.log(token, "token here");
+      const response = await axios.post(
+        "http://localhost:7000/remove-cart-product",
+        {
+          productId:id,
+          token,
+        }
+      );
+      console.log(response,"data here");
+      if (response.data.success) {
+        // console.log(response.data.success,"response here");
+        toast.success("item removed succesfully");
+        // console.log(response.data, "data here");
+        setUserCart(response.data.user);
+      } else {
+        toast.error("Failed to remove the item from the cart.");
+        console.error("API Error:", response.data.message);
+      }
+    } catch (error) {
+      toast.error("An error occurred while removing the item from the cart.");
+      console.log(error);
+    }
+  };
+  
+
   return (
     <>
       <div id="body-cart">
         <div id="xyz">
           <div>
-            <div onClick={()=>router("/")}>
+            <div onClick={() => router("/")}>
               <img
                 src="http://www.pngimagesfree.com/LOGO/T/Tata-CLiQ/Tata-cliq-logo-PNG-White.png"
                 alt=""
@@ -77,7 +131,7 @@ const Cart = () => {
                 alt=""
               />
 
-              <i class="fa-solid fa-chevron-down"></i>
+              <i className="fa-solid fa-chevron-down"></i>
             </div>
           </div>
         </div>
@@ -106,21 +160,21 @@ const Cart = () => {
               <div id="left-cart">
                 <div id="into-cart">
                   <p>
-                    {" "}
+                   
                     <img
                       src="https://www.tatacliq.com/src/cart/components/img/Delivery.svg"
                       alt=""
-                    />{" "}
+                    />
                     <span>
-                      Congratulations NeuPass User!! Your order is eligible for{" "}
-                      <b>FREE Shipping!</b>{" "}
-                    </span>{" "}
+                      Congratulations NeuPass User!! Your order is eligible for
+                      <b>FREE Shipping!</b>
+                    </span>
                   </p>
                 </div>
 
-                {userCart &&
+                {userCart.length > 0 &&
                   userCart.map((pro) => (
-                    <div id="cart-product-added">
+                    <div id="cart-product-added" key={pro._id}>
                       <div id="cart-product-img">
                         <img src={pro.image} alt="" />
                       </div>
@@ -136,35 +190,47 @@ const Cart = () => {
 
                         <div id="sum-up">
                           <span>Quantity:</span>
-                          <select name="" id="">
-                            <option value="">1</option>
-                            <option value="">1</option>
-                            <option value="">1</option>
+                          <select
+                            name=""
+                            id=""
+                            value={itemQuantities[pro._id]}
+                            onChange={(e) =>
+                              handleQuantityChange(
+                                pro._id,
+                                parseInt(e.target.value)
+                              )
+                            }
+                          >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            {/* Add more options as needed */}
                           </select>
 
                           <span id="total">
-                            <i class="fa-regular fa-heart"></i>
+                            <i className="fa-regular fa-heart"></i>
                             <span>Save to wishlist</span>
                           </span>
-                          <span>Remove</span>
+                          {/* here */}
+                          <span onClick={() => remove(pro._id)}>Remove</span>
                         </div>
                       </div>
                     </div>
                   ))}
 
                 <button onClick={() => router("/Allproduct")} id="button-0">
-                  Countine Shopping
+                  Continue Shopping
                 </button>
               </div>
               <div id="right-cart">
-                <div id="coupan">
+                <div id="coupon">
                   <div>
                     <img
                       src="https://www.tatacliq.com/src/general/components/img/coupon.png"
                       alt=""
                     />
-                    <span>Check for coupan</span>
-                    <i class="fa-solid fa-angle-right"></i>
+                    <span>Check for coupon</span>
+                    <i className="fa-solid fa-angle-right"></i>
                   </div>
 
                   <div id="cart-total-amt">
@@ -189,7 +255,7 @@ const Cart = () => {
 
                 <div id="whole-amt">
                   <div className="font-style">
-                    Total <br /> ₹  {(finalprice * 0.5).toFixed(2)}
+                    Total <br /> ₹ {(finalprice * 0.5).toFixed(2)}
                   </div>
 
                   <button onClick={checkOut} id="checkout">

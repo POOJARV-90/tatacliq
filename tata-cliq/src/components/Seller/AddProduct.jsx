@@ -6,7 +6,8 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import Sellerprotected from "./Sellerprotected";
 const AddProduct = () => {
-  const [productData, setProductData] = useState({ name: "", price: "", image: "", category: "" })
+  const [productData, setProductData] = useState({ name: "", price: "", image: "",  image1:"" , image2:"" , image3:"" ,category: "" , brand :"" })
+ 
 
 
   const router = useNavigate();
@@ -22,7 +23,7 @@ const AddProduct = () => {
         try {
             const response = await axios.post("http://localhost:7000/add-product", { token, productData });
             if (response?.data?.success) {
-                setProductData({ name: "", price: "", image: "", category: "" })
+                setProductData({ name: "", price: "", image: "",  image1:"" , image2:"" , image3:"" ,category: "" , brand :""})
                 // router('/seller-your-products')
                 toast.success(response.data.message)
             }
@@ -39,18 +40,7 @@ const AddProduct = () => {
     setProductData({ ...productData, ["category"]: event.target.value });
   }
 
-  // useEffect(() => {
-  //   const user = JSON.parse(localStorage.getItem("CurrentUser"));
-  //   if (user) {
-  //     if (user?.role == "Buyer") {
-  //       alert("You are not a Seller.");
-  //       router("/");
-  //     }
-  //   } else {
-  //     alert("Please login first");
-  //     router("/login");
-  //   }
-  // }, []);
+ 
 
   return (
     <Sellerprotected>
@@ -65,6 +55,16 @@ const AddProduct = () => {
           type="text"
           onChange={handleChange}
           name="name"
+        />
+        <br />
+        <br />
+        <label>Brand :</label>
+        <br />
+        <input
+          value={productData.brand}
+          type="text"
+          onChange={handleChange}
+          name="brand"
         />
         <br />
         <label>Product Price :</label>
@@ -85,19 +85,52 @@ const AddProduct = () => {
           name="image"
         />
         <br />
+        <br />
+        <label>Product Other Images : 1</label>
+        <br />
+        <input
+          value={productData.image1}
+          type="text"
+          onChange={handleChange}
+          name="image1"
+        />
+        <br />
+        <br />
+        <label>Product Other Images : 2</label>
+        <br />
+        <input
+          value={productData.image2}
+          type="text"
+          onChange={handleChange}
+          name="image2"
+        />
+        <br />
+        <br />
+        <label>Product Other Images : 3</label>
+        <br />
+        <input
+          value={productData.image3}
+          type="text"
+          onChange={handleChange}
+          name="image3"
+        />
+        <br />
         <label>Product Category :</label>
         <select id="select" onChange={selectRole} value={productData.category}>
           <option value="Other">Other</option>
           <option value="Mens">Mens</option>
           <option value="Womens">Womens</option>
-          <option value="Chidrens">Chidrens</option>
+          <option value="Kids">Kids</option>
           <option value="Beauty">Beauty</option>
           <option value="Home & Kitchen">Home & Kitchen</option>
           <option value="Electronics">Electronics</option>
+          <option value="Accessories">Accessories</option>
         </select>
         <br />
         <input type="submit" value="Add Product" />
       </form>
+
+      
     </div>
     </Sellerprotected>
   );

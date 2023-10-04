@@ -235,7 +235,7 @@ const Allproduct = () => {
                             />
                           </div>
 
-                          <h2>{pro.category}</h2>
+                          <h2>{pro.brand}</h2>
                           <p> {pro.name}</p>
                           <p>
                             <b>{pro.price} ₹</b> <s></s>
