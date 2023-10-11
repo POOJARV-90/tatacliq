@@ -69,27 +69,27 @@ export const allProducts = async (req, res) => {
   export const updateYourProduct = async (req , res) => {
     try {
   
-      const { productId , name , price , category , image , token } = req.body.editData
+      const { productId , name , price , category , image , token } = req.body.userdata
   
-      if (!token) return res.status(404).json({ status: "error", message: "Token is mandtory.." })
+      if (!token) return res.status(404).json({ success : false, message: "Token is mandtory.." })
       const decodedData = jwt.verify(token,process.env.JWT_SECRET)
   
       if (!decodedData) {
-          return res.status(404).json({ status: "error", message: "Token not valid." })
+          return res.status(404).json({success : false, message: "Token not valid." })
       }
       const userId = decodedData?.userId
   
       const updatedproduct = await ProductModal.findOneAndUpdate({ _id : productId , userId : userId} , { name , price , category , image} , {new : true})
   
       if(updatedproduct){
-        return res.status(200).json({ status: "Sucess", product: updatedproduct })
+        return res.status(200).json({ success : true , product: updatedproduct })
       }
   
-      return res.status(404).json({ status: "error", message: "You are trying to update product which is not yours.." })
+      return res.status(404).json({ success : false, message: "You are trying to update product which is not yours.." })
   
       
     } catch (error) {
-      return res.status(500).json({ status: "error", error: error.message })
+      return res.status(500).json({ success : false, error: error.message })
     }
   
   }

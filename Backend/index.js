@@ -12,7 +12,7 @@ import { removeAllCartProducts, removecartproduct } from './Controllers/Buyers.c
 const app = express();
 app.use(express.json())
 dotenv.config();
-app.use(cors());
+app.use(cors()); //1
 app.use(morgan("dev"))
 
 app.get("/",(req , res) => {

@@ -4,16 +4,18 @@ import '../Style/Yourproduct.css'; // Import your CSS file
 import Navbar from '../common/Navbar';
 import { Authcontext } from '../Context/Authcontext';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Yourproduct = () => {
     const [allProducts, setAllProducts] = useState([]);
-    const [editData , seteditDat] = useState({
-        name:"",
-        price:"",
-        image:"",
-        category:""
-      })
+    // const [editData , seteditDat] = useState({
+    //     name:"",
+    //     price:"",
+    //     image:"",
+    //     category:""
+    //   })
     const {state} = useContext(Authcontext)
+    const router = useNavigate()
     useEffect(() => {
         async function getProducts() {
             const token = JSON.parse(localStorage.getItem("token"));
@@ -60,7 +62,7 @@ const Yourproduct = () => {
                                 <td>{product.name}</td>
                                 <td>{product.price}</td>
                                 <td>{product.category}</td>
-                                <td> <button className='thebutton' onClick={() => editProduct(product._id)}>EDIT</button> </td>
+                                <td> <button className='thebutton'  onClick={() => router(`/update-product/${product._id}`)} >EDIT</button> </td>
                                 <td> <button className='thebutton' >Delete</button> </td>
 
                             </tr>
