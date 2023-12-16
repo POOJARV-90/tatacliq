@@ -39,7 +39,7 @@ app.post('/add-product',checkseller,addProduct )  //1
 app.post('/edit-product', updateYourProduct)
 
 
-mongoose.connect(process.env.MONGODB_URL).then(()=>{
+mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("CONNECTED TO DB :)");
 })
 

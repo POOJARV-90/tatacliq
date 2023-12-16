@@ -68,7 +68,7 @@ const Navbar = () => {
     event.preventDefault();
     if (userdata.email && userdata.password) {
       const response = await axios.post("http://localhost:7000/login", {
-        userdata
+        userdata,
       });
       if (response.data.success) {
         dispatch({
@@ -137,26 +137,16 @@ const Navbar = () => {
               {state?.user?.role === "Seller" && (
                 <span onClick={() => router("/AddProduct")}>
                   <i className="fa-solid fa-plus"> </i>
-
-              
                 </span>
               )}
 
-{state?.user?.role === "Seller" && (
+              {state?.user?.role === "Seller" && (
                 <span onClick={() => router("/seller-your-product")}>
-                  <i
-                     
-                     className="fa-solid fa-bars"
-                   ></i>
-
-              
+                  <i className="fa-solid fa-bars"></i>
                 </span>
               )}
 
-<span >
-                    {" "}
-                   
-                  </span>
+              <span> </span>
             </span>
 
             {display && (
@@ -204,7 +194,7 @@ const Navbar = () => {
                   <p>CLiQ Cash</p>
                 </div>
                 {/* onClick={logout} */}
-                <div  onClick={() => dispatch({ type: "LOGOUT" })}>
+                <div onClick={() => dispatch({ type: "LOGOUT" })}>
                   <img
                     src="https://www.tatacliq.com/src/account/components/img/settings.svg"
                     alt=""
@@ -317,7 +307,7 @@ const Navbar = () => {
         )}
 
         {regopen && (
-          <Register letcloseREG={letcloseREG} onClose={letcloseREG} />
+          <Register letcloseREG={letcloseREG} onClose={letcloseREG} letopen={letopen} />
         )}
       </div>
     </>

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-const Register = ({ letcloseREG, onClose }) => {
+const Register = ({ letcloseREG, onClose , letopen }) => {
    
     const router = useNavigate();
     const [userdata, setUserdata] = useState({
@@ -93,7 +93,7 @@ const Register = ({ letcloseREG, onClose }) => {
                   <b>Privacy Policy</b>{" "}
                 </p>
                 <p>
-                  Alraedy a member <b>Click here</b>
+                  Alraedy a member <b onClick={letopen}>Click here</b>
                 </p>
                 <input id="button-login" type="submit" value="Register" />
               </form>
